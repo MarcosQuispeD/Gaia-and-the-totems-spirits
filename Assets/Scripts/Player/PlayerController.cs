@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    float horizontal;
+    public float horizontal;
     float vertical;
     public float movSpeed;
     public float jumpForce;
@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public int jumpCount;
     public int extraJumps = 1;
     float jumpCooldown;
+    private float lastShoot;
+    public GameObject bulletPrefab;
 
 
 
@@ -61,6 +63,12 @@ public class PlayerController : MonoBehaviour
             dashCoroutine = Dash(.1f, 1);
             StartCoroutine(dashCoroutine);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.25f)
+        {
+            shoot();
+            lastShoot = Time.time;
+        }
     }
 
     private void FixedUpdate()
@@ -80,6 +88,23 @@ public class PlayerController : MonoBehaviour
             rb2d.velocity=new Vector2(0, jumpForce);
             jumpCount++;
         }
+        
+    }
+
+    private void shoot()
+    {
+        Vector3 bDirection;
+
+        if (horizontal >= 0) bDirection = Vector3.right;
+
+        else
+
+        {
+            bDirection = Vector3.left;
+        }
+
+        GameObject bullet = Instantiate(bulletPrefab, transform.position + bDirection * 0.4f, Quaternion.identity);
+        bullet.GetComponent<Bullet>().setDirection(bDirection);
         
     }
 
