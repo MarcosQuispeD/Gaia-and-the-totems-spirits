@@ -115,4 +115,9 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("Golpe");
+    }
 }

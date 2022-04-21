@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 1237045304}
   m_Layer: 0
   m_Name: Gaia
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   movSpeed: 15
   jumpForce: 10
   jumpCount: 0
+  extraJumps: 1
 --- !u!61 &1237045301
 BoxCollider2D:
   m_ObjectHideFlags: 0
