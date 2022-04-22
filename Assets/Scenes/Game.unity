@@ -239,8 +239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontal: 0
-  movSpeed: 15
-  jumpForce: 10
+  movSpeed: 8
+  jumpForce: 500
   jumpCount: 0
   extraJumps: 1
   bulletPrefab: {fileID: 7264725691310169235, guid: dfd80fb70ae401a478cf689bd2bdef0b, type: 3}

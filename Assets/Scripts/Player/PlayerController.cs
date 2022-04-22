@@ -73,10 +73,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb2d.AddForce(new Vector2(horizontal * movSpeed, 0));
+        rb2d.velocity = new Vector2(horizontal * movSpeed, rb2d.velocity.y);
         if (isDashing)
         {
-            rb2d.AddForce(new Vector2(direction * 10, 0), ForceMode2D.Impulse);
+            rb2d.AddForce(new Vector2(direction * 50, 0), ForceMode2D.Impulse);
         }
     }
 
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
         if (grounded || jumpCount < extraJumps)
         {
-            rb2d.velocity=new Vector2(0, jumpForce);
+            rb2d.AddForce(Vector2.up * jumpForce);
             jumpCount++;
         }
         
