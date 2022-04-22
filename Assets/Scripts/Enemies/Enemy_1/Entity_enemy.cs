@@ -1,0 +1,59 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Entity_enemy : MonoBehaviour
+{
+    protected GameObject _player;
+    protected int _speed = 3;
+    public int _life;
+    
+    // Start is called before the first frame update
+    public virtual void Start()
+    {
+        //No lo agrego desde el proyecto, porque el prefab no me lo permite 
+       _player = GameObject.FindWithTag("Player");  
+    }
+
+    // Update is called once per frame
+    public virtual void Update()
+    {
+        if (_life < 1)
+        {
+        Destroy(gameObject);
+        }
+
+    }
+    
+    public void Damage(int power)
+    {
+        //Aca podemos restar vida, podemos llamar a una animacion y podemos lanzar una respuesta.
+        _life = _life - power;       
+    }
+
+    public void Follow(GameObject player)
+    {
+    transform.position = Vector3.MoveTowards( transform.position, _player.transform.position, _speed * Time.deltaTime);
+    }
+
+
+    public void Spawn_childs(GameObject small_child)
+    { 
+        //Cada vez que es atacado, suelta 2 enemigos.
+        Vector3 _position = new Vector3 (transform.position.x -1, transform.position.y -1, transform.position.z);
+        GameObject enemy_child = Instantiate(small_child, _position , transform.rotation );
+        _position = new Vector3 (transform.position.x +1, transform.position.y -1, transform.position.z);
+        enemy_child = Instantiate(small_child, _position , transform.rotation );
+    }
+
+
+    public virtual void OnCollisionEnter2D(Collision2D collision) 
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Damage(1);
+        }
+    }
+
+
+}
