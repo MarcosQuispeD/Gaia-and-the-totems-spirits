@@ -12,8 +12,7 @@ public class Enemy_Bullet_two : MonoBehaviour
 {
     [SerializeField]
     TypeShoot shoot;
-    [SerializeField]
-    protected float speed;
+    float speed;
     Rigidbody2D rb;
     GameObject player;
     Vector2 direction;
@@ -39,11 +38,11 @@ public class Enemy_Bullet_two : MonoBehaviour
                 case 3:
                 case 4:
                     InstateParticle();
-                    speed = 5f;
-                    rb.velocity = new Vector2(0, transform.position.y * speed);
+                    speed = 0.3f;
+                    rb.velocity = new Vector2(0, transform.position.y > 0?(-transform.position.y): transform.position.y * speed);
                     break;
                 default:
-                    speed = 10f;
+                    speed = 5f;
                     player = GameObject.FindGameObjectsWithTag("Player")[0];
                     direction = (player.transform.position - transform.position).normalized * speed;
                     rb.velocity = new Vector2(direction.x, direction.y);
@@ -52,7 +51,7 @@ public class Enemy_Bullet_two : MonoBehaviour
         }
         else
         {
-            speed = 10f;
+            speed = 5f;
             player = GameObject.FindGameObjectsWithTag("Player")[0];
             direction = (player.transform.position - transform.position).normalized * speed;
             rb.velocity = new Vector2(direction.x, direction.y);

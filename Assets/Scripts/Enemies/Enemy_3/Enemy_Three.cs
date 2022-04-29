@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Three : EnemyController
+public class Enemy_Three : Entity_enemy
 {
 
     [SerializeField] List<Transform> wayPoints = new List<Transform>();
@@ -13,15 +13,15 @@ public class Enemy_Three : EnemyController
     bool standPosition = false;
     bool isShoot;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         transform.position = wayPoints[nextPoint].transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public override void Update()
     {
+        base.Update();
         NextWayPoints();
     }
     
@@ -29,7 +29,7 @@ public class Enemy_Three : EnemyController
     {
         if (!standPosition)
         {
-            transform.position = Vector2.MoveTowards(transform.position, wayPoints[nextPoint].transform.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, wayPoints[nextPoint].transform.position, _speed * Time.deltaTime);
             FlipEnemy();
             if (Vector2.Distance(transform.position, wayPoints[nextPoint].transform.position) < distance)
             {
@@ -60,7 +60,7 @@ public class Enemy_Three : EnemyController
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public override void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !isShoot)
         {
@@ -77,7 +77,7 @@ public class Enemy_Three : EnemyController
            
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    public override void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -93,6 +93,17 @@ public class Enemy_Three : EnemyController
         Instantiate(spawnShoot, innit.position, Quaternion.identity);
         yield return new WaitForSeconds(2.5f);
         isShoot = false;
+       
+    }
+
+
+    public override void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+             base.OnCollisionEnter2D(collision);
+        Destroy(collision.gameObject);
+        }
        
     }
 }
