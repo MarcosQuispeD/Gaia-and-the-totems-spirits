@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5290990948815745114}
   - component: {fileID: 5290990948815745112}
   - component: {fileID: 5290990948815745115}
-  - component: {fileID: 5290990948815745110}
+  - component: {fileID: 8712524010309724504}
   m_Layer: 0
   m_Name: Gaia
   m_TagString: Player
@@ -86,20 +86,20 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.02607286, y: -0.17649314}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.97, y: 1.03}
+    oldSize: {x: 1.7608696, y: 2.3304348}
+    newSize: {x: 1.7608696, y: 2.3304348}
     adaptiveTilingThreshold: 0.5
-    drawMode: 2
+    drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.83554065, y: 1.7942188}
   m_EdgeRadius: 0
---- !u!212 &5290990948815745110
+--- !u!212 &8712524010309724504
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,12 +139,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.7169812, g: 0.15218942, b: 0.15218942, a: 0.6313726}
+  m_Sprite: {fileID: 21300000, guid: 27bd1b98fcc67b94e9571fae1dd980a7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
-  m_Size: {x: 0.97, y: 1.03}
+  m_DrawMode: 0
+  m_Size: {x: 1.7608696, y: 2.3304348}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

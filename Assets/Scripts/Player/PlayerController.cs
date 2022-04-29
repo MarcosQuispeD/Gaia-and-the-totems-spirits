@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
     void CheckGrounded()
     {
-        if (Physics2D.Raycast(transform.position, Vector3.down, 0.55f))
+        if (Physics2D.Raycast(transform.position, Vector3.down, 0.75f))
         {
             grounded = true;
             jumpCount = 0;
