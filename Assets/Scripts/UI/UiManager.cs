@@ -5,54 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenu;
-    private bool paused = false;
+    public AudioClip[] audios;
+    public AudioSource audioPlayer;
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (paused)
-            {
-                Resume();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
+        audioPlayer = this.GetComponent<AudioSource>();
     }
-    public void Play()
+    public void PlayGame()
     {
         SceneManager.LoadScene(1);
+        
     }
-
     public void QuitGame()
     {
         Application.Quit();
     }
-
-    public void PauseGame()
+    public void ClipClick()
     {
-        paused = true;
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
+        audioPlayer.clip = audios[0];
+        audioPlayer.Play();
     }
-    public void Resume()
+    public void ClipClick2()
     {
-        paused = false;
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-    }
-    
-    public void Restart()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
-    }
-    public void ToMainMenu()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        audioPlayer.clip = audios[1];
+        audioPlayer.Play();
     }
 }
