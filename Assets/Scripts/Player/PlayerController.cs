@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public Animator animator;
     public float live;
+    public bool isInmune;
+
 
     private void Start()
     {
@@ -31,6 +34,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (live <=0)
+        {
+            gameObject.SetActive(false);
+            SceneManager.LoadScene(0);
+        }
+
         if (horizontal != 0)
         {
             direction = horizontal;
@@ -167,5 +176,23 @@ public class PlayerController : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         Debug.Log("Golpe");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("BulletEnemy") && !isInmune)
+        {
+            StartCoroutine(Inmune());
+        }
+    }
+
+    IEnumerator Inmune()
+    {
+        isInmune = true;
+        live -= 1;
+        GetComponentInParent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
+        yield return new WaitForSeconds(1.2f);
+        GetComponentInParent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        isInmune = false;
     }
 }

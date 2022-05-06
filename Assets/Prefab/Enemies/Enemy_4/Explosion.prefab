@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7823831603856374135}
   m_Layer: 0
   m_Name: Explosion
-  m_TagString: Untagged
+  m_TagString: BulletEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shoot: 0
-  speed: 9.88
   particle: {fileID: 6376593183789614319, guid: ab4693e0da14f3b44a6eef0af4cefb37, type: 3}
 --- !u!50 &7823831603856374135
 Rigidbody2D:

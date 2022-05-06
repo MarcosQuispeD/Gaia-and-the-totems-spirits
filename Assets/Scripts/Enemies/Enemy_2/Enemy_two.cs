@@ -32,7 +32,7 @@ public class Enemy_two : Entity_enemy
         base.Update();
         NextWayPoints();
         timeMechanics += Time.deltaTime;
-        if (timeMechanics >= 3.5f)
+        if (timeMechanics >= 2f)
         {
             MechanicRandom();
         }
