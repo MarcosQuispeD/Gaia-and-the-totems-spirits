@@ -25,7 +25,7 @@ public class Enemy_Bullet_two : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         SelectTypeShoot();
         isShoot = false;
-        Destroy(gameObject, 1f);
+        Destroy(gameObject,2f);
     }
 
     void SelectTypeShoot()
@@ -38,14 +38,18 @@ public class Enemy_Bullet_two : MonoBehaviour
                 case 3:
                 case 4:
                     InstateParticle();
-                    speed = 0.3f;
-                    rb.velocity = new Vector2(0, transform.position.y > 0?(-transform.position.y): transform.position.y * speed);
+                    speed = 0.5f;
+                    rb.velocity = new Vector2(0, transform.position.y > 0?(-transform.position.y * speed) : transform.position.y * speed);
                     break;
                 default:
                     speed = 5f;
                     player = GameObject.FindGameObjectsWithTag("Player")[0];
-                    direction = (player.transform.position - transform.position).normalized * speed;
-                    rb.velocity = new Vector2(direction.x, direction.y);
+                    if (player!= null)
+                    {
+                        direction = (player.transform.position - transform.position).normalized * speed;
+                        rb.velocity = new Vector2(direction.x, direction.y);
+                    }
+                   
                     break;
             }
         }
@@ -72,9 +76,14 @@ public class Enemy_Bullet_two : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             InstateParticle();
-            Destroy(gameObject, 0.1f);
-            
+            Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        InstateParticle();
+        Destroy(gameObject);
     }
 
     private void InstateParticle()

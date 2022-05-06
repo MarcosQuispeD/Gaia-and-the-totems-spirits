@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private float lastShoot;
     public GameObject bulletPrefab;
 
-
+    public float live;
 
     private void Start()
     {

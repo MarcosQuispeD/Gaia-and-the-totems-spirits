@@ -91,7 +91,7 @@ public class Enemy_Three : Entity_enemy
     {
         isShoot = true;
         Instantiate(spawnShoot, innit.position, Quaternion.identity);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         isShoot = false;
        
     }
@@ -101,8 +101,8 @@ public class Enemy_Three : Entity_enemy
     {
         if (collision.gameObject.tag == "Bullet")
         {
-             base.OnCollisionEnter2D(collision);
-        Destroy(collision.gameObject);
+            base.OnCollisionEnter2D(collision);
+            Destroy(collision.gameObject);
         }
        
     }

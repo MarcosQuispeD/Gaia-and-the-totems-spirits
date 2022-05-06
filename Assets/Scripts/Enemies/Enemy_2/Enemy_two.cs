@@ -114,7 +114,11 @@ public class Enemy_two : Entity_enemy
     public override void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
-        Destroy(collision.gameObject);
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(collision.gameObject);
+        }
+       
     }
 
 }
