@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shoot: 0
-  particle: {fileID: 6376593183789614319, guid: ab4693e0da14f3b44a6eef0af4cefb37, type: 3}
+  particle: {fileID: 6806237775914695650, guid: 4e823c7b3eb983040a42869096a101e5, type: 3}
 --- !u!50 &7823831603856374135
 Rigidbody2D:
   serializedVersion: 4
