@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     float jumpCooldown;
     private float lastShoot;
     public GameObject bulletPrefab;
-
+    public Animator animator;
     public float live;
 
     private void Start()
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             jump();
             Debug.Log("hoa");
         }
-
+      
         CheckGrounded();
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true)
@@ -68,7 +68,9 @@ public class PlayerController : MonoBehaviour
         {
             shoot();
             lastShoot = Time.time;
+           
         }
+     
     }
 
     private void FixedUpdate()
@@ -77,6 +79,15 @@ public class PlayerController : MonoBehaviour
         if (isDashing)
         {
             rb2d.AddForce(new Vector2(direction * 50, 0), ForceMode2D.Impulse);
+        }
+
+        if (rb2d.velocity.x != 0)
+        {
+            animator.SetBool("Walk", true);
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
         }
     }
 
@@ -105,7 +116,7 @@ public class PlayerController : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position + bDirection * 0.4f, Quaternion.identity);
         bullet.GetComponent<Bullet>().setDirection(bDirection);
-        
+
     }
 
     void CheckGrounded()
