@@ -70,7 +70,19 @@ public class PlayerController : MonoBehaviour
             lastShoot = Time.time;
            
         }
-     
+        FlipCharacter();
+    }
+
+    public void FlipCharacter()
+    {
+        if (rb2d.velocity.x > 0)
+        {
+            transform.localScale = new Vector2(1, transform.localScale.y);
+        }
+        else if (rb2d.velocity.x < 0)
+        {
+            transform.localScale = new Vector2(-1, transform.localScale.y);
+        }
     }
 
     private void FixedUpdate()
