@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     bool isDashing;
     bool canDash = true;
     bool grounded;
-    float direction = 1;
+    //float direction = 1;
     float normalGravity;
     public int jumpCount;
     public int extraJumps = 1;
@@ -40,12 +40,18 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        if (horizontal != 0)
+       
+        horizontal = Input.GetAxisRaw("Horizontal");
+
+        if (horizontal < 0.0f)
         {
-            direction = horizontal;
+            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
         }
 
-        horizontal = Input.GetAxisRaw("Horizontal");
+        else if (horizontal > 0.0f)
+        {
+            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        }
 
         Debug.DrawRay(transform.position, Vector3.down * 0.55f, Color.red);
         /*if (Physics2D.Raycast(transform.position, Vector3.down, 0.55f))
@@ -79,10 +85,10 @@ public class PlayerController : MonoBehaviour
             lastShoot = Time.time;
            
         }
-        FlipCharacter();
+        //FlipCharacter();
     }
 
-    public void FlipCharacter()
+    /*public void FlipCharacter()
     {
         if (rb2d.velocity.x > 0)
         {
@@ -92,14 +98,14 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector2(-1, transform.localScale.y);
         }
-    }
+    }*/
 
     private void FixedUpdate()
     {
         rb2d.velocity = new Vector2(horizontal * movSpeed, rb2d.velocity.y);
         if (isDashing)
         {
-            rb2d.AddForce(new Vector2(direction * 50, 0), ForceMode2D.Impulse);
+            rb2d.AddForce(new Vector2(horizontal * 50, 0), ForceMode2D.Impulse);
         }
 
         if (rb2d.velocity.x != 0)
@@ -127,7 +133,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 bDirection;
 
-        if (horizontal >= 0) bDirection = Vector3.right;
+        if (transform.localScale.x == 1.0f) bDirection = Vector3.right;
 
         else
 
