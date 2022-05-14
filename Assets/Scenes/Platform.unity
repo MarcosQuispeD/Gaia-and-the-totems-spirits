@@ -65796,11 +65796,15 @@ PrefabInstance:
       objectReference: {fileID: 1297242914}
     - target: {fileID: 5290990948815745114, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: movSpeed
-      value: 10
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290990948815745114, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: dashForce
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745114, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: jumpForce
-      value: 580
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745115, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_Size.x
@@ -65808,7 +65812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745115, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_Size.y
-      value: 1.9681944
+      value: 1.3916596
       objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745115, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_Enabled
@@ -65820,7 +65824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745115, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_Offset.y
-      value: -0.26348096
+      value: 0.024786413
       objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745117, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_Name
@@ -74851,8 +74855,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07149553, y: -0.4074316}
-  m_Size: {x: 1.8897166, y: 4.388197}
+  m_Offset: {x: -0.03562677, y: 0.0253582}
+  m_Size: {x: 1.1542461, y: 1.3992348}
   m_Direction: 0
 --- !u!4 &1297242918 stripped
 Transform:

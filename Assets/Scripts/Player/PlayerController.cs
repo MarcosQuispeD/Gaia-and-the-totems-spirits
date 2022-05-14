@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public float live;
     public bool isInmune;
+    public float dashForce = 50;
 
 
     private void Start()
@@ -102,10 +103,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb2d.velocity = new Vector2(horizontal * movSpeed, rb2d.velocity.y);
+        rb2d.velocity = new Vector2(horizontal * movSpeed * Time.deltaTime, rb2d.velocity.y);
         if (isDashing)
         {
-            rb2d.AddForce(new Vector2(horizontal * 50, 0), ForceMode2D.Impulse);
+            rb2d.AddForce(new Vector2(horizontal * dashForce * Time.deltaTime, 0), ForceMode2D.Impulse);
         }
 
         if (rb2d.velocity.x != 0)
