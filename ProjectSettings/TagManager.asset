@@ -9,6 +9,10 @@ TagManager:
   - Particle_EnemyFour
   - BulletEnemy
   - PlayerCollider
+  - Background
+  - HealthReg
+  - SpeedBoost
+  - Enemy
   layers:
   - Default
   - TransparentFX
