@@ -453,26 +453,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2586ab40cbaf1b40ac60bdf313eb653, type: 3}
---- !u!1 &631785012 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5290990948815745117, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
-  m_PrefabInstance: {fileID: 1495250828}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &631785021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631785012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef63b8b990eadf4b8b9f7cdba5a4866, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 0
-  healthBar: {fileID: 89617834}
 --- !u!1 &765276841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,22 +1084,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11782238, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
-      propertyPath: m_TagString
-      value: PlayerCollider
-      objectReference: {fileID: 0}
-    - target: {fileID: 11782241, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11782241, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1297242915, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 631785021, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 89617834}
     - target: {fileID: 5290990948815745113, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1162,10 +1130,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745113, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290990948815745115, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745117, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}

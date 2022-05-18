@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 1297242915}
   - component: {fileID: 1297242914}
   - component: {fileID: 1297242916}
+  - component: {fileID: 631785021}
   m_Layer: 0
   m_Name: Gaia
   m_TagString: Player
@@ -339,9 +340,6 @@ MonoBehaviour:
   live: 10
   isInmune: 0
   dashForce: 800
-  maxHealth: 10
-  currentHealth: 0
-  healthBar: {fileID: 0}
 --- !u!50 &5290990948815745112
 Rigidbody2D:
   serializedVersion: 4
@@ -497,3 +495,19 @@ MonoBehaviour:
   rayPositionOffset: 0.8
   bulletPrefab: {fileID: 5161945545434571250, guid: dfd80fb70ae401a478cf689bd2bdef0b, type: 3}
   bulletOrigin: {fileID: 168746685}
+  dust: {fileID: 0}
+--- !u!114 &631785021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290990948815745117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef63b8b990eadf4b8b9f7cdba5a4866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
+  healthBar: {fileID: 0}

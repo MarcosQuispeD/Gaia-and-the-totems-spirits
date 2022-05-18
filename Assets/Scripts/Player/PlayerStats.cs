@@ -44,6 +44,10 @@ public class PlayerStats : MonoBehaviour
             currentHealth++;
             healthBar.SetHealth(currentHealth);
         }
+        if (collision.gameObject.tag == "Traps")
+        {
+            TakeDamage();
+        }
 
     }
 
