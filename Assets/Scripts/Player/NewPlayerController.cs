@@ -33,6 +33,8 @@ public class NewPlayerController : MonoBehaviour
     public Transform bulletOrigin;
     private float lastShoot;
 
+    public ParticleSystem dust; 
+
 
     private void Awake()
     {
@@ -83,16 +85,19 @@ public class NewPlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
             transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            CreateDust();
 
         }
         else if (horizontalMove < 0)
         {
             rb.velocity = new Vector2(-movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
             transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+            CreateDust();
         }
         else
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
+            
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
@@ -174,5 +179,13 @@ public class NewPlayerController : MonoBehaviour
 
         Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
 
+    }
+
+    private void CreateDust()
+    {
+        dust.Play();
+        if (horizontalMove < 0)
+        {//
+        }           
     }
 }
