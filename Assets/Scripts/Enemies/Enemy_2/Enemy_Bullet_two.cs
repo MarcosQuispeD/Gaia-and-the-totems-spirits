@@ -38,11 +38,11 @@ public class Enemy_Bullet_two : MonoBehaviour
                 case 3:
                 case 4:
                     InstateParticle();
-                    speed = 0.5f;
+                    speed = 8f;
                     rb.velocity = new Vector2(0, transform.position.y > 0?(-transform.position.y * speed) : transform.position.y * speed);
                     break;
                 default:
-                    speed = 5f;
+                    speed = 10f;
                     player = GameObject.FindGameObjectsWithTag("Player")[0];
                     if (player!= null)
                     {
@@ -55,7 +55,7 @@ public class Enemy_Bullet_two : MonoBehaviour
         }
         else
         {
-            speed = 5f;
+            speed = 10f;
             player = GameObject.FindGameObjectsWithTag("Player")[0];
             direction = (player.transform.position - transform.position).normalized * speed;
             rb.velocity = new Vector2(direction.x, direction.y);
