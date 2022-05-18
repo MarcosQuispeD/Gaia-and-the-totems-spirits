@@ -4,37 +4,52 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
-     public string itemType;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string itemType;
+    public GameObject pickUpEffect;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-     void OnCollisionEnter2D(Collision2D collision) 
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             if (itemType == "Health")
             {
-                Debug.Log("Choque con el player, deberia darle SALUD");
-                Destroy(gameObject);
+                GiveHealth();    
             }
 
             if (itemType == "Speed")
             {
-                Debug.Log("Choque con el player, deberia darle VELOCIDAD");
-                Destroy(gameObject);
+                GiveSpeed(); 
             }
-            
+
         }
     }
 
-    
+    void GiveHealth()
+    {
+        
+        Debug.Log("Choque con el player, deberia darle SALUD");
+        Destroy(gameObject);
+
+    }
+    void GiveSpeed()
+    {
+        Debug.Log("Choque con el player, deberia darle VELOCIDAD");
+        Destroy(gameObject);
+
+
+    }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("PLayer"))
+    //    {
+    //        PickUp();
+    //    }
+    //}
+
+    //void PickUp()
+    //{
+    //    Debug.Log("lo agarro");
+    //}
+
 }

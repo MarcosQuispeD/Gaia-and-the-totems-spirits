@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 3446211549351758695}
-  speed: 20
+  speed: 50
   player: {fileID: 0}
 --- !u!50 &3446211549351758695
 Rigidbody2D:

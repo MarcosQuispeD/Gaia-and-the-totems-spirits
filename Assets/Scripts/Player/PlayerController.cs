@@ -26,19 +26,13 @@ public class PlayerController : MonoBehaviour
     public bool isInmune;
     public float dashForce = 50;
 
-    //PRUEBA FEDE BARRA DE VIDA
-    public int maxHealth = 10;
-    public int currentHealth;
-    public HealthBar healthBar;
+    
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         normalGravity = rb2d.gravityScale;
-
-        //PRUEBA FEDE BARRA DE VIDA
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        
     }
 
     private void Update()
@@ -96,11 +90,7 @@ public class PlayerController : MonoBehaviour
         }
         //FlipCharacter();
 
-        //PRUEBA FEDE BARRA DE VIDA
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            TakeDamage(1);
-        }
+        
     }
 
     /*public void FlipCharacter()
@@ -217,10 +207,5 @@ public class PlayerController : MonoBehaviour
         isInmune = false;
     }
 
-    //PRUEBA FEDE BARRA DE VIDA
-    void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-    }
+    
 }
