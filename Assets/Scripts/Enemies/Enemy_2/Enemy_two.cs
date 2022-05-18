@@ -55,8 +55,6 @@ public class Enemy_two : Entity_enemy
         switch (random)
         {
             case 0:
-                StartCoroutine(ExplosionAttack());
-                break;
             case 1:
                 if (nextPoint == 0 || nextPoint == 3 || nextPoint == 4)
                 {
