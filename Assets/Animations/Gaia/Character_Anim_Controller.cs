@@ -5,6 +5,9 @@ using UnityEngine;
 public class Character_Anim_Controller : MonoBehaviour
 {
     Animator _anim;
+    //public GameObject bala_prefab;
+    public bool flip;
+
     
     void Start()
     {
@@ -14,6 +17,14 @@ public class Character_Anim_Controller : MonoBehaviour
 
     void Update()
     {
+        flip = GetComponent<SpriteRenderer>().flipX;
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("Disparando");
+            _anim.Play("Attack");
+            //SpawnBala();   
+        }
+
         if (Input.GetKey(KeyCode.Q))
         {
             Debug.Log("Q: WALK");            
@@ -52,4 +63,13 @@ public class Character_Anim_Controller : MonoBehaviour
 
         
     }
+
+    //  public void SpawnBala()
+    //   {
+    //      GameObject bala_instanciada = Instantiate(bala_prefab, transform.position , transform.rotation );
+    //      bala_instanciada.GetComponent<Bala_Test>().Movement(flip, 1);
+
+    //   }
+
+
 }

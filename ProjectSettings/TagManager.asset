@@ -9,6 +9,7 @@ TagManager:
   - Particle_EnemyFour
   - BulletEnemy
   - PlayerCollider
+  - Traps
   layers:
   - Default
   - TransparentFX
