@@ -5,32 +5,17 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    private Rigidbody2D rb2d;
-    public float speed;
-    private Vector2 direction;
+    public Rigidbody2D rb2d;
+    public float speed = 20f;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-        
+        rb2d.velocity = transform.right * speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        rb2d.velocity = direction * speed;
-        destroyBullet();
-    }
-
-    public void setDirection(Vector2 bulletDirection)
-    {
-        direction = bulletDirection;
-    }
-
-    public void destroyBullet()
-    {
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject);
     }
 }

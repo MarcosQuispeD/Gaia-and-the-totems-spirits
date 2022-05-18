@@ -8,6 +8,7 @@ TagManager:
   - Enemy_Four
   - Particle_EnemyFour
   - BulletEnemy
+  - PlayerCollider
   layers:
   - Default
   - TransparentFX

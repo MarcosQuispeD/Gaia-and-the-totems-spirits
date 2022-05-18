@@ -146,18 +146,18 @@ public class PlayerController : MonoBehaviour
 
     private void shoot()
     {
-        Vector3 bDirection;
+        //Vector3 bDirection;
 
-        if (transform.localScale.x == 1.0f) bDirection = Vector3.right;
+        //if (transform.localScale.x == 1.0f) bDirection = Vector3.right;
 
-        else
+        //else
 
-        {
-            bDirection = Vector3.left;
-        }
+        //{
+        //    bDirection = Vector3.left;
+        //}
 
-        GameObject bullet = Instantiate(bulletPrefab, transform.position + bDirection * 0.4f, Quaternion.identity);
-        bullet.GetComponent<Bullet>().setDirection(bDirection);
+        //GameObject bullet = Instantiate(bulletPrefab, transform.position + bDirection * 0.4f, Quaternion.identity);
+        //bullet.GetComponent<Bullet>().setDirection(bDirection);
 
     }
 
