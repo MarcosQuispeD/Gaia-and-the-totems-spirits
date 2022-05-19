@@ -36,10 +36,16 @@ public class NewPlayerController : MonoBehaviour
 
     public ParticleSystem dust; 
 
+    //Para animaciones
+    private Animator _myAnim;
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        //Para animaciones
+        _myAnim = GetComponent<Animator>();
+        //Para animaciones
     }
 
     private void Start()
@@ -69,6 +75,71 @@ public class NewPlayerController : MonoBehaviour
             lastShoot = Time.time;
 
         }
+        
+        //Para animaciones
+        //Attack:
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _myAnim.SetBool("Attack", true);
+        }
+        else
+        {
+            _myAnim.SetBool("Attack", false);
+        }
+
+        //Jump
+        if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
+        {
+            _myAnim.SetBool("Jump", true);
+        }
+        else
+        {
+            _myAnim.SetBool("Jump", false);
+        }
+        
+        //Walk
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            _myAnim.SetBool("Walk", true);
+
+        } 
+        else
+        {
+            _myAnim.SetBool("Walk", false);    
+        }
+        
+        //Dash
+        if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true)
+        {
+            _myAnim.SetBool("Dash", true);
+        }
+        else
+        {
+            _myAnim.SetBool("Dash", false);
+        }
+        //Para verificar
+        //Damage
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            _myAnim.SetBool("Damage", true);
+        }
+        else
+        {
+            _myAnim.SetBool("Damage", false);
+        }
+
+        //Para verificar
+        //Death
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            _myAnim.SetBool("Death", true);
+        }
+        else
+        {
+            _myAnim.SetBool("Death", false);
+        }
+        //Para animaciones
+
     }
 
     private void FixedUpdate()
@@ -81,6 +152,7 @@ public class NewPlayerController : MonoBehaviour
 
     private void Movement()
     {
+
         horizontalMove = Input.GetAxisRaw("Horizontal");
         if (horizontalMove > 0)
         {
@@ -105,11 +177,13 @@ public class NewPlayerController : MonoBehaviour
         {
             //rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             rb.AddForce(new Vector2(rb.velocity.x, jumpSpeed), ForceMode2D.Impulse);
+
         }
     }
 
     private void Jump()
     {
+    
         rayPositionCenter = transform.position + new Vector3(0, rayLenght * .5f, 0);
         rayPositionLeft = transform.position + new Vector3(-rayPositionOffset, rayLenght * .5f, 0);
         rayPositionRight = transform.position + new Vector3(rayPositionOffset, rayLenght * .5f, 0);
@@ -180,7 +254,7 @@ public class NewPlayerController : MonoBehaviour
 
         //GameObject bullet = Instantiate(bulletPrefab, transform.position + bDirection * 0.4f, Quaternion.identity);
         //bullet.GetComponent<Bullet>().setDirection(bDirection);
-
+        
         Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
 
     }
