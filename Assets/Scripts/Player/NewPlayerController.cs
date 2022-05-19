@@ -11,6 +11,7 @@ public class NewPlayerController : MonoBehaviour
     public bool isDashing;
     private float normalGravity;
     public float dashForce = 50;
+    private float lastImageXpos;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpSpeed;
 
@@ -151,6 +152,8 @@ public class NewPlayerController : MonoBehaviour
     {
         Vector2 originalVelocity = rb.velocity;
         isDashing = true;
+        PlayerAfterImagePool.Instance.GetFromPool();
+        lastImageXpos = transform.position.x;
         canDash = false;
         rb.gravityScale = 0;
         rb.velocity = Vector2.zero;
@@ -160,6 +163,7 @@ public class NewPlayerController : MonoBehaviour
         rb.velocity = originalVelocity;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+
     }
 
     private void shoot()
