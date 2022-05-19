@@ -66637,6 +66637,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 133236080, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 133236080, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 133236080, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2093960561
+      objectReference: {fileID: 0}
     - target: {fileID: 306129151, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -66663,7 +66675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: distanceBetweenImages
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745113, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_RootOrder

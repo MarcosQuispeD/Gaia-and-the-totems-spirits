@@ -31,6 +31,8 @@ public class PlayerAfterImageSprite : MonoBehaviour
         transform.position = player.position;
         transform.rotation = player.rotation;
         timeActivated = Time.time;
+
+        FlipCharacterAfter();
     }
 
     private void Update()
@@ -42,6 +44,20 @@ public class PlayerAfterImageSprite : MonoBehaviour
         if (Time.time >= (timeActivated + activeTime))
         {
             PlayerAfterImagePool.Instance.AddToPool(gameObject);
+        }
+    }
+    public void FlipCharacterAfter()
+    {
+        var play = GameObject.FindGameObjectWithTag("Player");
+        var rigid = play.GetComponent<Rigidbody2D>();
+
+        if (rigid.velocity.x > 0)
+        {
+            transform.localScale = new Vector2(1, transform.localScale.y);
+        }
+        else if (rigid.velocity.x < 0)
+        {
+            transform.localScale = new Vector2(-1, transform.localScale.y);
         }
     }
 }
