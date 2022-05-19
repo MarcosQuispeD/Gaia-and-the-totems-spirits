@@ -38,7 +38,7 @@ public class PlayerAfterImageSprite : MonoBehaviour
     private void Update()
     {
         alpha *= alphaMultiplier;
-        color = new Color(1f, 1f, 1f, alpha);
+        color = new Color(0f, 255f, 255f, alpha);
         SR.color = color;
 
         if (Time.time >= (timeActivated + activeTime))
