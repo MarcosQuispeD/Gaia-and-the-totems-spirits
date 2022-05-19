@@ -145,4 +145,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 3
+  damaged: {fileID: 8300000, guid: 53b895cf846648042be8e6ea86d0f027, type: 3}
   enemy01B: {fileID: 2256248911525958694, guid: 60e71b99d50bf204b8688a45b7d3c44f, type: 3}
