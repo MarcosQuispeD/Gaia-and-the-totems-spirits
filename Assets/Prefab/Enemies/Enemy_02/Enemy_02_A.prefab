@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 0
+  damaged: {fileID: 8300000, guid: 53b895cf846648042be8e6ea86d0f027, type: 3}
   enemy02Bullet: {fileID: 2051853908421503080, guid: c2415cfb06194074db3167fe003d82ac, type: 3}
 --- !u!50 &3609952717681227479
 Rigidbody2D:

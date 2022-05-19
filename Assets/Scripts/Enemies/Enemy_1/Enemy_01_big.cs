@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_01_big : Enemy_01_small
 {
-    public GameObject enemy01B; 
+    public GameObject enemy01B;
 
     public override void Start()
     {

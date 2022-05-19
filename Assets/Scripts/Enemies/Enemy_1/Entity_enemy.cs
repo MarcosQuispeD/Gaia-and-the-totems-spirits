@@ -7,12 +7,17 @@ public class Entity_enemy : MonoBehaviour
     protected GameObject _player;
     protected int _speed = 3;
     public int _life;
+
+    public AudioClip damaged;
+    private AudioSource _myAudioSource;
     
     // Start is called before the first frame update
     public virtual void Start()
     {
         //No lo agrego desde el proyecto, porque el prefab no me lo permite 
-       _player = GameObject.FindWithTag("Player");  
+       _player = GameObject.FindWithTag("Player");
+       _myAudioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -28,7 +33,9 @@ public class Entity_enemy : MonoBehaviour
     public void Damage(int power)
     {
         //Aca podemos restar vida, podemos llamar a una animacion y podemos lanzar una respuesta.
-        _life = _life - power;       
+        _life = _life - power;
+        _myAudioSource.clip = damaged;
+        _myAudioSource.Play();      
     }
 
     public void Follow(GameObject player)
