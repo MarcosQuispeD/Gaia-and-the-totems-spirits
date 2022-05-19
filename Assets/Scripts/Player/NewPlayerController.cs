@@ -5,15 +5,14 @@ using UnityEngine;
 public class NewPlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float horizontalMove;
+    private float movementInputDirection;
+    private bool isFacingRight = true;
     public bool canJump;
     public bool canDash = true;
-    public bool isDashing;
     private float normalGravity;
     public float dashForce = 50;
-    private float lastImageXpos;
     [SerializeField] private float movementSpeed;
-    [SerializeField] private float jumpSpeed;
+    [SerializeField] private float jumpForce;
 
     [SerializeField] private float rayLenght;
     [SerializeField] private float rayPositionOffset;
@@ -34,7 +33,18 @@ public class NewPlayerController : MonoBehaviour
     public Transform bulletOrigin;
     private float lastShoot;
 
-    public ParticleSystem dust; 
+    public ParticleSystem dust;
+
+    //new dash
+    private bool isDashing;
+    public float dashTime;
+    public float dashSpeed;
+    public float distanceBetweenImages;
+    public float dashCooldown;
+    private float dashTimeLeft;
+    private float lastImageXpos;
+    private float lastDash = -100f;
+
 
     //Para animaciones
     private Animator _myAnim;
@@ -55,19 +65,12 @@ public class NewPlayerController : MonoBehaviour
 
     private void Update()
     {
-        Movement();
-        Jump();
+        CheckInput();
+        CheckMovementDIrection();
+        CheckJump();
+        CheckDash();
 
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true)
-        {
-            if (dashCoroutine != null)
-            {
-                StopCoroutine(dashCoroutine);
-            }
-            dashCoroutine = Dash(.1f, 1);
-            StartCoroutine(dashCoroutine);
-        }
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.25f)
         {
@@ -75,7 +78,7 @@ public class NewPlayerController : MonoBehaviour
             lastShoot = Time.time;
 
         }
-        
+
         //Para animaciones
         //Attack:
         if (Input.GetKeyDown(KeyCode.Space))
@@ -96,18 +99,18 @@ public class NewPlayerController : MonoBehaviour
         {
             _myAnim.SetBool("Jump", false);
         }
-        
+
         //Walk
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             _myAnim.SetBool("Walk", true);
 
-        } 
+        }
         else
         {
-            _myAnim.SetBool("Walk", false);    
+            _myAnim.SetBool("Walk", false);
         }
-        
+
         //Dash
         if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true)
         {
@@ -144,46 +147,103 @@ public class NewPlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        ApplyMovement();
         if (isDashing)
         {
-            rb.AddForce(new Vector2(horizontalMove * dashForce * Time.deltaTime, 0), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(movementInputDirection * dashForce * Time.deltaTime, 0), ForceMode2D.Impulse);
         }
     }
 
-    private void Movement()
+    private void CheckInput()
     {
+        movementInputDirection = Input.GetAxisRaw("Horizontal");
 
-        horizontalMove = Input.GetAxisRaw("Horizontal");
-        if (horizontalMove > 0)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
         {
-            rb.velocity = new Vector2(movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
+            Jump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true)
+        {
+            if (Time.time >= (lastDash + dashCooldown))
+            {
+                AttempToDash();
+            }
+
+        }
+    }
+
+    private void AttempToDash()
+    {
+        isDashing = true;
+        dashTimeLeft = dashTime;
+        lastDash = Time.time;
+
+        PlayerAfterImagePool.Instance.GetFromPool();
+        lastImageXpos = transform.position.x;
+    }
+
+    private void CheckDash()
+    {
+        if (isDashing)
+        {
+
+            if (dashTimeLeft > 0)
+            {
+                
+                rb.velocity = new Vector2(dashSpeed * movementInputDirection, rb.velocity.y);
+                dashTimeLeft -= Time.deltaTime;
+
+                if (Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
+                {
+                    PlayerAfterImagePool.Instance.GetFromPool();
+                    lastImageXpos = transform.position.x;
+                }
+            }
+
+            if (dashTimeLeft <= 0)
+            {
+                isDashing = false;
+                
+            }
+        }
+    }
+    private void ApplyMovement()
+    {
+        rb.velocity = new Vector2(movementInputDirection * movementSpeed, rb.velocity.y);
+    }
+
+    private void Jump()
+    {
+        rb.AddForce(new Vector2(rb.velocity.x, jumpForce), ForceMode2D.Impulse);
+    }
+    private void CheckMovementDIrection()
+    {
+        Flip();
+    }
+
+    private void Flip()
+    {
+        if (movementInputDirection > 0)
+        {
             transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             CreateDust();
 
         }
-        else if (horizontalMove < 0)
+        else if (movementInputDirection < 0)
         {
-            rb.velocity = new Vector2(-movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
             transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             CreateDust();
         }
         else
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
-            
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
-        {
-            //rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-            rb.AddForce(new Vector2(rb.velocity.x, jumpSpeed), ForceMode2D.Impulse);
 
         }
     }
-
-    private void Jump()
+    private void CheckJump()
     {
-    
+
         rayPositionCenter = transform.position + new Vector3(0, rayLenght * .5f, 0);
         rayPositionLeft = transform.position + new Vector3(-rayPositionOffset, rayLenght * .5f, 0);
         rayPositionRight = transform.position + new Vector3(rayPositionOffset, rayLenght * .5f, 0);
@@ -222,39 +282,11 @@ public class NewPlayerController : MonoBehaviour
         return false;
     }
 
-    IEnumerator Dash(float dashDuration, float dashCooldown)
-    {
-        Vector2 originalVelocity = rb.velocity;
-        isDashing = true;
-        PlayerAfterImagePool.Instance.GetFromPool();
-        lastImageXpos = transform.position.x;
-        canDash = false;
-        rb.gravityScale = 0;
-        rb.velocity = Vector2.zero;
-        yield return new WaitForSeconds(dashDuration);
-        isDashing = false;
-        rb.gravityScale = normalGravity;
-        rb.velocity = originalVelocity;
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
-
-    }
+   
 
     private void shoot()
     {
-        //Vector3 bDirection;
 
-        //if (transform.localScale.x == 1.0f) bDirection = Vector3.right;
-
-        //else
-
-        //{
-        //    bDirection = Vector3.left;
-        //}
-
-        //GameObject bullet = Instantiate(bulletPrefab, transform.position + bDirection * 0.4f, Quaternion.identity);
-        //bullet.GetComponent<Bullet>().setDirection(bDirection);
-        
         Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
 
     }
@@ -262,8 +294,8 @@ public class NewPlayerController : MonoBehaviour
     private void CreateDust()
     {
         dust.Play();
-        if (horizontalMove < 0)
+        if (movementInputDirection < 0)
         {//
-        }           
+        }
     }
 }
