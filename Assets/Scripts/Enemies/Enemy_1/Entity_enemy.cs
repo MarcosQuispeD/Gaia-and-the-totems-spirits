@@ -7,9 +7,8 @@ public class Entity_enemy : MonoBehaviour
     protected GameObject _player;
     protected int _speed = 3;
     public int _life;
-
-    public AudioClip damaged;
     private AudioSource _myAudioSource;
+    private SpriteRenderer _mySprite;
     
     // Start is called before the first frame update
     public virtual void Start()
@@ -17,7 +16,7 @@ public class Entity_enemy : MonoBehaviour
         //No lo agrego desde el proyecto, porque el prefab no me lo permite 
        _player = GameObject.FindWithTag("Player");
        _myAudioSource = GetComponent<AudioSource>();
-
+       _mySprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -34,8 +33,8 @@ public class Entity_enemy : MonoBehaviour
     {
         //Aca podemos restar vida, podemos llamar a una animacion y podemos lanzar una respuesta.
         _life = _life - power;
-        _myAudioSource.clip = damaged;
-        _myAudioSource.Play();      
+        StartCoroutine(Feedback());
+  
     }
 
     public void Follow(GameObject player)
@@ -58,6 +57,7 @@ public class Entity_enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            _myAudioSource.Play();
             Damage(1);
         }
     }
@@ -70,5 +70,18 @@ public class Entity_enemy : MonoBehaviour
     {
        
     }
+
+    public IEnumerator Feedback()
+    {
+        _mySprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        _mySprite.color = Color.white;
+        yield return new WaitForSeconds(0.1f);
+        _mySprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        _mySprite.color = Color.white;
+    }
+
+
 
 }
