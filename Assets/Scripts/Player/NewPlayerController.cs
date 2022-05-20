@@ -30,7 +30,9 @@ public class NewPlayerController : MonoBehaviour
     IEnumerator dashCoroutine;
 
     public GameObject bulletPrefab;
+    public GameObject bulletFX;
     public Transform bulletOrigin;
+    public Transform bulletFXOrigin;
     private float lastShoot;
 
     public ParticleSystem dust;
@@ -288,6 +290,7 @@ public class NewPlayerController : MonoBehaviour
     {
 
         Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
+        Instantiate(bulletFX, bulletFXOrigin.position, bulletFXOrigin.rotation);
 
     }
 
