@@ -5,7 +5,7 @@ using UnityEngine;
 public class Entity_enemy : MonoBehaviour
 {
     protected GameObject _player;
-    protected int _speed = 3;
+    protected int _speed = 6;
     public int _life;
     private AudioSource _myAudioSource;
     private SpriteRenderer _mySprite;
@@ -59,6 +59,12 @@ public class Entity_enemy : MonoBehaviour
             _myAudioSource.Play();
             Damage(1);
         }
+        else
+        //if (collision.gameObject.tag == "Player")
+        {
+            StartCoroutine(Rebote());
+
+        }
     }
 
     public virtual void OnTriggerStay2D(Collider2D collision)
@@ -79,6 +85,14 @@ public class Entity_enemy : MonoBehaviour
         _mySprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         _mySprite.color = Color.white;
+    }
+
+    public IEnumerator Rebote()
+    {
+        _speed = _speed * -3;
+        yield return new WaitForSeconds(0.5f);
+        _speed = _speed / -3;
+
     }
 
 
