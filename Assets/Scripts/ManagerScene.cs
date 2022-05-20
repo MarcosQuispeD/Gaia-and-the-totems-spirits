@@ -32,17 +32,10 @@ public class ManagerScene : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("PlayerCollider"))
+        if (collision.CompareTag("PlayerCollider") && check)
         {
 
-            if (scene == 2 && check)
-            {
-                SceneManager.LoadScene(scene);
-            }
-            else
-            {
-                SceneManager.LoadScene(scene);
-            }
+            SceneManager.LoadScene(scene);
         }
       
     }

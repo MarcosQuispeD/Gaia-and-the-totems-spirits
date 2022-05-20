@@ -18,10 +18,7 @@ public class Items : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerCollider"))
-        {
-            ManagerScene.instance.check = true;
-            Destroy(gameObject);
-        }
+        ManagerScene.instance.check = true;
+        Destroy(gameObject);
     }
 }
