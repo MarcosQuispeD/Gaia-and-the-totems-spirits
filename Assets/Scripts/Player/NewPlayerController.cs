@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewPlayerController : MonoBehaviour
 {
@@ -350,6 +351,14 @@ public class NewPlayerController : MonoBehaviour
         dust.Play();
         if (movementInputDirection < 0)
         {//
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == 11)
+        {
+            SceneManager.LoadScene(1);
         }
     }
 }
