@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewPlayerController : MonoBehaviour
 {
@@ -30,7 +31,9 @@ public class NewPlayerController : MonoBehaviour
     IEnumerator dashCoroutine;
 
     public GameObject bulletPrefab;
+    public GameObject bulletFX;
     public Transform bulletOrigin;
+    public Transform bulletFXOrigin;
     private float lastShoot;
 
     public ParticleSystem dust;
@@ -45,6 +48,13 @@ public class NewPlayerController : MonoBehaviour
     private float lastImageXpos;
     private float lastDash = -100f;
 
+    //CoyoteTime
+    public float coyoteTime = 0.2f;
+    public float coyoteTimeCounter;
+
+    //JumpBuff
+    public float jumpBufferTime = 0.2f;
+    public float jumpBufferCounter;
 
     //Para animaciones
     private Animator _myAnim;
@@ -70,20 +80,51 @@ public class NewPlayerController : MonoBehaviour
         CheckJump();
         CheckDash();
 
+        if (GroundCheck(allRaycastHits))
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
 
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+            if (coyoteTimeCounter <= 0)
+            {
+                coyoteTimeCounter = 0;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.25f)
         {
-            shoot();
-            lastShoot = Time.time;
+            //var gaia = Instantiate(bulletFX, bulletFXOrigin.position, bulletFXOrigin.rotation);
+
+            //gaia.transform.SetParent(transform);
+
+            //shoot();
+            //lastShoot = Time.time;
 
         }
 
         //Para animaciones
         //Attack:
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.1f)
         {
+            
             _myAnim.SetBool("Attack", true);
+            if (_myAnim.GetBool("Attack")==true)
+            {
+                rb.velocity = new Vector2 (0,rb.velocity.y);
+            }
         }
         else
         {
@@ -158,9 +199,15 @@ public class NewPlayerController : MonoBehaviour
     {
         movementInputDirection = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
+        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0)
         {
+            jumpBufferCounter = 0f;
             Jump();
+        }
+
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            coyoteTimeCounter = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true)
@@ -190,7 +237,7 @@ public class NewPlayerController : MonoBehaviour
 
             if (dashTimeLeft > 0)
             {
-                
+
                 rb.velocity = new Vector2(dashSpeed * movementInputDirection, rb.velocity.y);
                 dashTimeLeft -= Time.deltaTime;
 
@@ -204,18 +251,20 @@ public class NewPlayerController : MonoBehaviour
             if (dashTimeLeft <= 0)
             {
                 isDashing = false;
-                
+
             }
         }
     }
     private void ApplyMovement()
     {
         rb.velocity = new Vector2(movementInputDirection * movementSpeed, rb.velocity.y);
+                
     }
 
     private void Jump()
     {
         rb.AddForce(new Vector2(rb.velocity.x, jumpForce), ForceMode2D.Impulse);
+
     }
     private void CheckMovementDIrection()
     {
@@ -263,7 +312,7 @@ public class NewPlayerController : MonoBehaviour
         Debug.DrawRay(rayPositionRight, -Vector2.up * rayLenght, Color.red);
     }
 
-    private bool GroundCheck(RaycastHit2D[][] groundHits)
+    public bool GroundCheck(RaycastHit2D[][] groundHits)
     {
         foreach (RaycastHit2D[] hitList in groundHits)
         {
@@ -282,13 +331,19 @@ public class NewPlayerController : MonoBehaviour
         return false;
     }
 
-   
 
-    private void shoot()
+
+    public void shoot()
     {
+        var gaia = Instantiate(bulletFX, bulletFXOrigin.position, bulletFXOrigin.rotation);
+
+        gaia.transform.SetParent(transform);
+
+        
 
         Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
 
+        lastShoot = Time.time;
     }
 
     private void CreateDust()
@@ -296,6 +351,14 @@ public class NewPlayerController : MonoBehaviour
         dust.Play();
         if (movementInputDirection < 0)
         {//
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == 11)
+        {
+            SceneManager.LoadScene(1);
         }
     }
 }
