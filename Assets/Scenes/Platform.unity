@@ -70167,6 +70167,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 306129152, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.3
+      objectReference: {fileID: 0}
     - target: {fileID: 908954916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
       value: 3

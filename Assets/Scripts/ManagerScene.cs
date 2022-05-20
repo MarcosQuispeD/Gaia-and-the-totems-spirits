@@ -8,6 +8,7 @@ public class ManagerScene : MonoBehaviour
 
     public static ManagerScene instance;
     public int scene;
+    public bool check;
     void Awake()
     {
         if (instance == null)
@@ -33,7 +34,15 @@ public class ManagerScene : MonoBehaviour
     {
         if (collision.CompareTag("PlayerCollider"))
         {
-            SceneManager.LoadScene(scene);
+
+            if (scene == 2 && check)
+            {
+                SceneManager.LoadScene(scene);
+            }
+            else
+            {
+                SceneManager.LoadScene(scene);
+            }
         }
       
     }
