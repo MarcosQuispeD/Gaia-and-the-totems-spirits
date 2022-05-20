@@ -47,6 +47,9 @@ public class NewPlayerController : MonoBehaviour
     private float lastImageXpos;
     private float lastDash = -100f;
 
+    //CoyoteTime
+    public float coyoteTime = 0.2f;
+    public float coyoteTimeCounter;
 
     //Para animaciones
     private Animator _myAnim;
@@ -72,10 +75,26 @@ public class NewPlayerController : MonoBehaviour
         CheckJump();
         CheckDash();
 
+        if (GroundCheck(allRaycastHits))
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
 
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+            if (coyoteTimeCounter <= 0)
+            {
+                coyoteTimeCounter = 0;
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.25f)
         {
+            var gaia = Instantiate(bulletFX, bulletFXOrigin.position, bulletFXOrigin.rotation);
+
+            gaia.transform.SetParent(transform);
+
             shoot();
             lastShoot = Time.time;
 
@@ -160,9 +179,14 @@ public class NewPlayerController : MonoBehaviour
     {
         movementInputDirection = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && coyoteTimeCounter > 0)
         {
             Jump();
+        }
+
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            coyoteTimeCounter = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true)
@@ -192,7 +216,7 @@ public class NewPlayerController : MonoBehaviour
 
             if (dashTimeLeft > 0)
             {
-                
+
                 rb.velocity = new Vector2(dashSpeed * movementInputDirection, rb.velocity.y);
                 dashTimeLeft -= Time.deltaTime;
 
@@ -206,7 +230,7 @@ public class NewPlayerController : MonoBehaviour
             if (dashTimeLeft <= 0)
             {
                 isDashing = false;
-                
+
             }
         }
     }
@@ -218,6 +242,7 @@ public class NewPlayerController : MonoBehaviour
     private void Jump()
     {
         rb.AddForce(new Vector2(rb.velocity.x, jumpForce), ForceMode2D.Impulse);
+
     }
     private void CheckMovementDIrection()
     {
@@ -265,7 +290,7 @@ public class NewPlayerController : MonoBehaviour
         Debug.DrawRay(rayPositionRight, -Vector2.up * rayLenght, Color.red);
     }
 
-    private bool GroundCheck(RaycastHit2D[][] groundHits)
+    public bool GroundCheck(RaycastHit2D[][] groundHits)
     {
         foreach (RaycastHit2D[] hitList in groundHits)
         {
@@ -284,13 +309,13 @@ public class NewPlayerController : MonoBehaviour
         return false;
     }
 
-   
+
 
     private void shoot()
     {
 
         Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
-        Instantiate(bulletFX, bulletFXOrigin.position, bulletFXOrigin.rotation);
+
 
     }
 
