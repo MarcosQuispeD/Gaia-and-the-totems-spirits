@@ -39,9 +39,8 @@ public class Entity_enemy : MonoBehaviour
 
     public void Follow(GameObject player)
     {
-    transform.position = Vector3.MoveTowards( transform.position, _player.transform.position, _speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards( transform.position, _player.transform.position, _speed * Time.deltaTime);
     }
-
 
     public void Spawn_childs(GameObject small_child)
     { 
