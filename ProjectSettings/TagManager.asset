@@ -12,6 +12,7 @@ TagManager:
   - Traps
   - Enemy
   - FxTemporaire
+  - Escene_1
   layers:
   - Default
   - TransparentFX
