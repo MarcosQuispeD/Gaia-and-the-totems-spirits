@@ -51,7 +51,17 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-        void TakeDamage()
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "BulletEnemy")
+        {
+            TakeDamage();
+        }
+    }
+
+
+    void TakeDamage()
     {
         currentHealth --;
         healthBar.SetHealth(currentHealth);

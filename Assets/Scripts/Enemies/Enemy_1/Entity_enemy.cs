@@ -56,7 +56,17 @@ public class Entity_enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            _myAudioSource.Play();
+            if (_myAudioSource != null)
+            {
+                _myAudioSource.Play();
+            }
+            else
+            {
+                _myAudioSource =gameObject.GetComponentInChildren<AudioSource>();
+                _myAudioSource.Play();
+            }
+
+
             Damage(1);
         }
         else
@@ -78,6 +88,11 @@ public class Entity_enemy : MonoBehaviour
 
     public IEnumerator Feedback()
     {
+        if (_mySprite == null)
+        {
+            _mySprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+        }
+
         _mySprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         _mySprite.color = Color.white;
