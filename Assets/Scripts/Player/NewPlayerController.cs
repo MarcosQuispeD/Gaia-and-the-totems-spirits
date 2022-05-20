@@ -210,7 +210,7 @@ public class NewPlayerController : MonoBehaviour
             coyoteTimeCounter = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true && movementInputDirection != 0)
         {
             if (Time.time >= (lastDash + dashCooldown))
             {
