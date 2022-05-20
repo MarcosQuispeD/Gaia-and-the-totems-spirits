@@ -17,6 +17,11 @@ public class UiManager : MonoBehaviour
         SceneManager.LoadScene(1);
         
     }
+    public void PlayCombat()
+    {
+        SceneManager.LoadScene(4);
+
+    }
     public void QuitGame()
     {
         Application.Quit();

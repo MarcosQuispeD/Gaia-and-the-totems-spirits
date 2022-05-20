@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyChanges : MonoBehaviour
 {
@@ -58,5 +59,10 @@ public class EnemyChanges : MonoBehaviour
             Destroy(enemy[i].gameObject);
         }
         Instantiate(entity[3], innit.position, innit.rotation);
+    }
+
+    public void Quit()
+    {
+        SceneManager.LoadScene(0);
     }
 }
