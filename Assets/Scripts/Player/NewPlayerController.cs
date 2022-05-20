@@ -51,6 +51,10 @@ public class NewPlayerController : MonoBehaviour
     public float coyoteTime = 0.2f;
     public float coyoteTimeCounter;
 
+    //JumpBuff
+    public float jumpBufferTime = 0.2f;
+    public float jumpBufferCounter;
+
     //Para animaciones
     private Animator _myAnim;
 
@@ -89,22 +93,37 @@ public class NewPlayerController : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.25f)
         {
-            var gaia = Instantiate(bulletFX, bulletFXOrigin.position, bulletFXOrigin.rotation);
+            //var gaia = Instantiate(bulletFX, bulletFXOrigin.position, bulletFXOrigin.rotation);
 
-            gaia.transform.SetParent(transform);
+            //gaia.transform.SetParent(transform);
 
-            shoot();
-            lastShoot = Time.time;
+            //shoot();
+            //lastShoot = Time.time;
 
         }
 
         //Para animaciones
         //Attack:
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.1f)
         {
+            
             _myAnim.SetBool("Attack", true);
+            if (_myAnim.GetBool("Attack")==true)
+            {
+                rb.velocity = new Vector2 (0,rb.velocity.y);
+            }
         }
         else
         {
@@ -179,8 +198,9 @@ public class NewPlayerController : MonoBehaviour
     {
         movementInputDirection = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && coyoteTimeCounter > 0)
+        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0)
         {
+            jumpBufferCounter = 0f;
             Jump();
         }
 
@@ -237,6 +257,7 @@ public class NewPlayerController : MonoBehaviour
     private void ApplyMovement()
     {
         rb.velocity = new Vector2(movementInputDirection * movementSpeed, rb.velocity.y);
+                
     }
 
     private void Jump()
@@ -311,12 +332,17 @@ public class NewPlayerController : MonoBehaviour
 
 
 
-    private void shoot()
+    public void shoot()
     {
+        var gaia = Instantiate(bulletFX, bulletFXOrigin.position, bulletFXOrigin.rotation);
+
+        gaia.transform.SetParent(transform);
+
+        
 
         Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
 
-
+        lastShoot = Time.time;
     }
 
     private void CreateDust()
