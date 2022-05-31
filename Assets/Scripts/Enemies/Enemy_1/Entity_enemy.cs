@@ -37,8 +37,10 @@ public class Entity_enemy : MonoBehaviour
   
     }
 
+
     public void Follow(GameObject player)
     {
+        _mySprite.flipX = _player.transform.position.x < this.transform.position.x;
         transform.position = Vector3.MoveTowards( transform.position, _player.transform.position, _speed * Time.deltaTime);
     }
 
@@ -50,6 +52,7 @@ public class Entity_enemy : MonoBehaviour
         _position = new Vector3 (transform.position.x +1, transform.position.y -1, transform.position.z);
         enemy_child = Instantiate(small_child, _position , transform.rotation );
     }
+
 
 
     public virtual void OnCollisionEnter2D(Collision2D collision) 
@@ -85,7 +88,7 @@ public class Entity_enemy : MonoBehaviour
     {
        
     }
-
+    
     public IEnumerator Feedback()
     {
         if (_mySprite == null)

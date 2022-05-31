@@ -32,5 +32,10 @@ public class Enemy_02_big : Entity_enemy
         bullet.GetComponent<Enemy_02_small>().Movement(3, flipped);
        
     }
+
+    public virtual void OnTriggerEnter2D(Collider2D other) 
+    {
+
+    }
    
 }

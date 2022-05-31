@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - FxTemporaire
   - Escene_1
+  - Enemy_Bullet
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Post Procesing
   - Enemy
   - Player
-  - 
+  - EnemyBullet
   - 
   - 
   - 

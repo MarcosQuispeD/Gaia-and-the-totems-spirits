@@ -24,4 +24,5 @@ public class Enemy_01_big : Enemy_01_small
         }
     }
 
+
 }
