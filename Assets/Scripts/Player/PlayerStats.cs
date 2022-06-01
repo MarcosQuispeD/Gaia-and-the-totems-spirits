@@ -8,10 +8,13 @@ public class PlayerStats : MonoBehaviour
     public int maxHealth = 10;
     public int currentHealth;
     public HealthBar healthBar;
+    public SpriteRenderer _mySprite, _headSprite;
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        _mySprite = GetComponent<SpriteRenderer>();
+        
     }
 
     void Update()
@@ -53,7 +56,17 @@ public class PlayerStats : MonoBehaviour
 
         void TakeDamage()
     {
+        StartCoroutine(Feedback());
         currentHealth --;
         healthBar.SetHealth(currentHealth);
     }
+    public IEnumerator Feedback()
+    {
+        _mySprite.color = Color.red;
+        _headSprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        _mySprite.color = Color.white;
+        _headSprite.color = Color.white;
+    }
+
 }

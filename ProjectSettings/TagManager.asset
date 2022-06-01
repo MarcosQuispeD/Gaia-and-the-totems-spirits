@@ -11,6 +11,8 @@ TagManager:
   - PlayerCollider
   - Traps
   - Enemy
+  - HealthReg
+  - head
   layers:
   - Default
   - TransparentFX
