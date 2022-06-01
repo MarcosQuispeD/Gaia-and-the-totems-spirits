@@ -81326,6 +81326,14 @@ PrefabInstance:
       propertyPath: m_ApplyToSortingLayers.Array.data[3]
       value: -1775162727
       objectReference: {fileID: 0}
+    - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: jumpForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: marioJump
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745113, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_RootOrder
       value: 3

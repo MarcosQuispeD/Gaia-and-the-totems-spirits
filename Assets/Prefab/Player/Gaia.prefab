@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 306129150}
   - component: {fileID: 306129153}
   - component: {fileID: 815602475}
+  - component: {fileID: 526061917}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -115,7 +116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306129149}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 1.1640015, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 713616849}
@@ -145,11 +146,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 1
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20.2
+  orthographic size: 18.6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -218,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 306129152}
+  volumeTrigger: {fileID: 0}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -266,6 +267,40 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &526061917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306129149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &908954914
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +350,7 @@ MonoBehaviour:
   m_Color: {r: 0.99324894, g: 1, b: 0.8820755, a: 1}
   m_Intensity: 1.2
   m_LightVolumeOpacity: 0.029
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000008fb23083992a3196
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -325,7 +360,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 31.8
+  m_PointLightOuterRadius: 29.1
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -5320,7 +5355,7 @@ MonoBehaviour:
   canDash: 1
   dashForce: 5000
   movementSpeed: 21
-  jumpForce: 90
+  jumpForce: 20
   rayLenght: 5.34
   rayPositionOffset: 0.8
   bulletPrefab: {fileID: 5161945545434571250, guid: dfd80fb70ae401a478cf689bd2bdef0b, type: 3}
@@ -5334,6 +5369,11 @@ MonoBehaviour:
   dashCooldown: 0.5
   coyoteTime: 0.2
   coyoteTimeCounter: 0
+  jumpBufferTime: 0.2
+  jumpBufferCounter: 0
+  extraJumps: 1
+  extraJumpCount: 0
+  extraJumpForce: 0
 --- !u!114 &631785021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5341,7 +5381,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5290990948815745117}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ef63b8b990eadf4b8b9f7cdba5a4866, type: 3}
   m_Name: 
