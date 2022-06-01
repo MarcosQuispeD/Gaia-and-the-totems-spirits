@@ -265,6 +265,36 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &907768220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 907768221}
+  m_Layer: 0
+  m_Name: ShootterOrigen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &907768221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907768220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5290990948815745113}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &908954914
 GameObject:
   m_ObjectHideFlags: 0
@@ -5178,6 +5208,7 @@ Transform:
   - {fileID: 11782239}
   - {fileID: 168746685}
   - {fileID: 1288924845}
+  - {fileID: 907768221}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5288,16 +5319,25 @@ MonoBehaviour:
   canDash: 1
   dashForce: 5000
   movementSpeed: 10
-  jumpForce: 75
+  jumpForce: 20
   rayLenght: 5.34
   rayPositionOffset: 0.8
   bulletPrefab: {fileID: 5161945545434571250, guid: dfd80fb70ae401a478cf689bd2bdef0b, type: 3}
+  bulletFX: {fileID: 1858616869296015253, guid: 7ef9149daeee8ad418a18a08c4d591d8, type: 3}
   bulletOrigin: {fileID: 168746685}
+  bulletFXOrigin: {fileID: 907768221}
   dust: {fileID: 1288924843}
   dashTime: 0.3
   dashSpeed: 2.5
   distanceBetweenImages: 0.1
   dashCooldown: 0.5
+  coyoteTime: 0.2
+  coyoteTimeCounter: 0
+  jumpBufferTime: 0.2
+  jumpBufferCounter: 0
+  extraJumps: 1
+  extraJumpCount: 0
+  extraJumpForce: 0
 --- !u!114 &631785021
 MonoBehaviour:
   m_ObjectHideFlags: 0
