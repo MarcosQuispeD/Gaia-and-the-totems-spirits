@@ -17,8 +17,12 @@ public class Enemy_01_big : Enemy_01_small
         base.OnCollisionEnter2D(collision);
         if (collision.gameObject.tag == "Bullet")
         {
-            Spawn_childs(enemy01B);
+            if (_life < 1)
+            {
+                Spawn_childs(enemy01B);
+            }
         }
     }
+
 
 }

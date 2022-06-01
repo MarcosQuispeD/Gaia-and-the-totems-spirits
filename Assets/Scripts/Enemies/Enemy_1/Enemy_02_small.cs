@@ -10,16 +10,11 @@ public class Enemy_02_small : MonoBehaviour
         Destroy(gameObject, 2);    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Movement(int bullet_number, bool flipped)
     {  
-        int _speedX = 5;
-        int _speedY = 5; 
+        int _speedX = 10;
+        int _speedY = 10; 
         //Para mover izquierda o derecha.
         if (flipped)
         {
@@ -38,4 +33,10 @@ public class Enemy_02_small : MonoBehaviour
 
         }    
     }
+
+    public virtual void OnTriggerEnter2D(Collider2D other) 
+    {
+        Destroy(gameObject);
+    }
+
 }

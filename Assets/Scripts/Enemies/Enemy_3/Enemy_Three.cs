@@ -62,7 +62,7 @@ public class Enemy_Three : Entity_enemy
 
     public override void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !isShoot)
+        if (collision.CompareTag("PlayerCollider") && !isShoot)
         {
             standPosition = true;
             if (transform.position.x < collision.transform.position.x)
@@ -79,7 +79,7 @@ public class Enemy_Three : Entity_enemy
     }
     public override void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("PlayerCollider"))
         {
             standPosition = false;
             FlipEnemy();

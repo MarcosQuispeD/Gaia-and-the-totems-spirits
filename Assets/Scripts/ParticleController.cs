@@ -6,6 +6,6 @@ public class ParticleController : MonoBehaviour
 {
     void Start()
     {
-        Destroy(gameObject, 0.6f);
+        Destroy(gameObject, 0.4f);
     }
 }
