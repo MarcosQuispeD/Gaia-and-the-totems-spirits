@@ -5318,7 +5318,7 @@ MonoBehaviour:
   canJump: 1
   canDash: 1
   dashForce: 5000
-  movementSpeed: 10
+  movementSpeed: 21
   jumpForce: 20
   rayLenght: 5.34
   rayPositionOffset: 0.8
