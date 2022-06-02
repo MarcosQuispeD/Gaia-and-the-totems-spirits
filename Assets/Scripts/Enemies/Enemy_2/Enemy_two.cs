@@ -116,7 +116,19 @@ public class Enemy_two : Entity_enemy
         {
             Destroy(collision.gameObject);
         }
-       
+        if (collision.gameObject.tag == "Player")
+        {
+            transform.position = Vector2.zero;
+        }
+    }
+
+    public override void OnTriggerStay2D(Collider2D collision)
+    {
+        base.OnTriggerStay2D(collision);
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 
 }

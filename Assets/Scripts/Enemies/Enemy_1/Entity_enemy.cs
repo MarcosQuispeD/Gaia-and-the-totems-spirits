@@ -82,7 +82,19 @@ public class Entity_enemy : MonoBehaviour
 
     public virtual void OnTriggerStay2D(Collider2D collision)
     {
-       
+        if (collision.gameObject.tag == "Bullet")
+        {
+            if (_myAudioSource != null)
+            {
+                _myAudioSource.Play();
+            }
+            else
+            {
+                _myAudioSource = gameObject.GetComponentInChildren<AudioSource>();
+                _myAudioSource.Play();
+            }
+            Damage(1);
+        }
     }
     public virtual void OnTriggerExit2D(Collider2D collision)
     {

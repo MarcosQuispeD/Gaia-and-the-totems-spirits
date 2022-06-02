@@ -13,6 +13,8 @@ TagManager:
   - Enemy
   - HealthReg
   - head
+  - Escene_1
+  - Totem
   layers:
   - Default
   - TransparentFX

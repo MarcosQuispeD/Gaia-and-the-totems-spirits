@@ -21,6 +21,14 @@ public class ItemController : MonoBehaviour
                 GiveSpeed(); 
             }
 
+            if (itemType == "Collision" && collision.gameObject.GetComponent<NewPlayerController>().extraJumps == 1f)
+            {
+                collision.gameObject.GetComponent<NewPlayerController>().cameraList[0].SetActive(false);
+                collision.gameObject.GetComponent<NewPlayerController>().cameraList[1].SetActive(true);
+                Destroy(gameObject);
+            }
+            
+
         }
     }
 
