@@ -3,15 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum TypeTotems
+{
+    eagle,
+    cheetah
+}
+
 public class NewPlayerController : MonoBehaviour
 {
     public List<GameObject> cameraList = new List<GameObject>();
+    public GameObject itemCheck;
+    public Transform pointInnitParticle;
 
+    private bool isTransforPower = true;
     private Rigidbody2D rb;
     private float movementInputDirection;
     private bool isFacingRight = true;
     public bool canJump;
     public bool canDash = true;
+    public bool itemDash;
     private float normalGravity;
     public float dashForce = 50;
     [SerializeField] private float movementSpeed;
@@ -81,123 +91,129 @@ public class NewPlayerController : MonoBehaviour
 
     private void Update()
     {
-        CheckInput();
-        CheckMovementDIrection();
-        CheckJump();
-        CheckDash();
-
-        if (GroundCheck(allRaycastHits))
+        if (isTransforPower)
         {
-            coyoteTimeCounter = coyoteTime;
-        }
+            CheckInput();
+            CheckMovementDIrection();
+            CheckJump();
+            CheckDash();
 
-        else
-        {
-            coyoteTimeCounter -= Time.deltaTime;
-            if (coyoteTimeCounter <= 0)
+            if (GroundCheck(allRaycastHits))
             {
-                coyoteTimeCounter = 0;
+                coyoteTimeCounter = coyoteTime;
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            jumpBufferCounter = jumpBufferTime;
-        }
-
-        else
-        {
-            jumpBufferCounter -= Time.deltaTime;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.25f)
-        {
-            //var gaia = Instantiate(bulletFX, bulletFXOrigin.position, bulletFXOrigin.rotation);
-
-            //gaia.transform.SetParent(transform);
-
-            //shoot();
-            //lastShoot = Time.time;
-
-        }
-
-        //Para animaciones
-        //Attack:
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.1f)
-        {
-
-            _myAnim.SetBool("Attack", true);
-            if (_myAnim.GetBool("Attack") == true)
+            else
             {
-                rb.velocity = new Vector2(0, rb.velocity.y);
+                coyoteTimeCounter -= Time.deltaTime;
+                if (coyoteTimeCounter <= 0)
+                {
+                    coyoteTimeCounter = 0;
+                }
             }
-        }
-        else
-        {
-            _myAnim.SetBool("Attack", false);
-        }
 
-        //Jump
-        if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
-        {
-            _myAnim.SetBool("Jump", true);
-        }
-        else
-        {
-            _myAnim.SetBool("Jump", false);
-        }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                jumpBufferCounter = jumpBufferTime;
+            }
 
-        //Walk
-        if (Input.GetAxisRaw("Horizontal") != 0)
-        {
-            _myAnim.SetBool("Walk", true);
+            else
+            {
+                jumpBufferCounter -= Time.deltaTime;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.25f)
+            {
+                //var gaia = Instantiate(bulletFX, bulletFXOrigin.position, bulletFXOrigin.rotation);
+
+                //gaia.transform.SetParent(transform);
+
+                //shoot();
+                //lastShoot = Time.time;
+
+            }
+
+            //Para animaciones
+            //Attack:
+            if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.1f)
+            {
+
+                _myAnim.SetBool("Attack", true);
+                if (_myAnim.GetBool("Attack") == true)
+                {
+                    rb.velocity = new Vector2(0, rb.velocity.y);
+                }
+            }
+            else
+            {
+                _myAnim.SetBool("Attack", false);
+            }
+
+            //Jump
+            if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
+            {
+                _myAnim.SetBool("Jump", true);
+            }
+            else
+            {
+                _myAnim.SetBool("Jump", false);
+            }
+
+            //Walk
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {
+                _myAnim.SetBool("Walk", true);
+
+            }
+            else
+            {
+                _myAnim.SetBool("Walk", false);
+            }
+
+            //Dash
+            if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true && itemDash)
+            {
+                _myAnim.SetBool("Dash", true);
+            }
+            else
+            {
+                _myAnim.SetBool("Dash", false);
+            }
+            //Para verificar
+            //Damage
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                _myAnim.SetBool("Damage", true);
+            }
+            else
+            {
+                _myAnim.SetBool("Damage", false);
+            }
+
+            //Para verificar
+            //Death
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                _myAnim.SetBool("Death", true);
+            }
+            else
+            {
+                _myAnim.SetBool("Death", false);
+            }
+            //Para animaciones
 
         }
-        else
-        {
-            _myAnim.SetBool("Walk", false);
-        }
-
-        //Dash
-        if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true)
-        {
-            _myAnim.SetBool("Dash", true);
-        }
-        else
-        {
-            _myAnim.SetBool("Dash", false);
-        }
-        //Para verificar
-        //Damage
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            _myAnim.SetBool("Damage", true);
-        }
-        else
-        {
-            _myAnim.SetBool("Damage", false);
-        }
-
-        //Para verificar
-        //Death
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            _myAnim.SetBool("Death", true);
-        }
-        else
-        {
-            _myAnim.SetBool("Death", false);
-        }
-        //Para animaciones
 
     }
 
     private void FixedUpdate()
     {
-        ApplyMovement();
-        if (isDashing)
-        {
-            rb.AddForce(new Vector2(movementInputDirection * dashForce * Time.deltaTime, 0), ForceMode2D.Impulse);
+        if (isTransforPower) { 
+            ApplyMovement();
+            if (isDashing)
+            {
+                rb.AddForce(new Vector2(movementInputDirection * dashForce * Time.deltaTime, 0), ForceMode2D.Impulse);
+            }
         }
     }
 
@@ -221,7 +237,7 @@ public class NewPlayerController : MonoBehaviour
             coyoteTimeCounter = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true && movementInputDirection != 0)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true && movementInputDirection != 0 && itemDash)
         {
             if (Time.time >= (lastDash + dashCooldown))
             {
@@ -397,8 +413,23 @@ public class NewPlayerController : MonoBehaviour
 
     IEnumerator EffectTotems(GameObject other)
     {
-        yield return new WaitForSeconds(0.5f);
-        extraJumps = 1f;
+        _myAnim.SetBool("Walk", false);
+        isTransforPower = false;
+        rb.velocity = Vector2.zero;
+      
+        switch (other.GetComponent<Totems>().Type)
+        {
+            case TypeTotems.eagle:
+                extraJumps = 1f;
+                break;
+            case TypeTotems.cheetah:
+                itemDash = true;
+                break;
+        }
         Destroy(other);
+        Instantiate(itemCheck, pointInnitParticle.position, pointInnitParticle.rotation);
+        yield return new WaitForSeconds(1.5f);
+        
+        isTransforPower = true;
     }
 }
