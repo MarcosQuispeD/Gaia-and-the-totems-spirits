@@ -428,7 +428,7 @@ public class NewPlayerController : MonoBehaviour
         }
         Destroy(other);
         Instantiate(itemCheck, pointInnitParticle.position, pointInnitParticle.rotation);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         
         isTransforPower = true;
     }
