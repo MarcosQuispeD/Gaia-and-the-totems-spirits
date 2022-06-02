@@ -1538,6 +1538,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947926146}
   m_CullTransparentMesh: 1
+--- !u!212 &1125341496 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 133236080, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+  m_PrefabInstance: {fileID: 1632231185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1181767304
 GameObject:
   m_ObjectHideFlags: 0
@@ -29070,6 +29075,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 631785021, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: _mySprite
+      value: 
+      objectReference: {fileID: 1125341496}
+    - target: {fileID: 631785021, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 642900624}
@@ -29077,6 +29086,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 631785021, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: _headSprite
+      value: 
+      objectReference: {fileID: 1884402894}
     - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: dust
       value: 
@@ -29091,7 +29104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: jumpForce
-      value: 75
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: bulletOrigin
@@ -29103,7 +29116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: movementSpeed
-      value: 10
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: distanceBetweenImages
@@ -29382,6 +29395,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850382001}
   m_CullTransparentMesh: 1
+--- !u!212 &1884402894 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1743589470, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
+  m_PrefabInstance: {fileID: 642900623}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1911175308
 PrefabInstance:
   m_ObjectHideFlags: 0
