@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class NewPlayerController : MonoBehaviour
 {
+    public List<GameObject> cameraList = new List<GameObject>();
+
     private Rigidbody2D rb;
     private float movementInputDirection;
     private bool isFacingRight = true;
@@ -60,7 +62,7 @@ public class NewPlayerController : MonoBehaviour
     private Animator _myAnim;
 
     //Double Jump
-    public float extraJumps = 1f;
+    public float extraJumps = 0f;
     public float extraJumpCount;
     public float extraJumpForce;
 
@@ -386,5 +388,17 @@ public class NewPlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+
+        if (other.CompareTag("Totem"))
+        {
+            StartCoroutine(EffectTotems(other.gameObject));
+        }
+    }
+
+    IEnumerator EffectTotems(GameObject other)
+    {
+        yield return new WaitForSeconds(0.5f);
+        extraJumps = 1f;
+        Destroy(other);
     }
 }
