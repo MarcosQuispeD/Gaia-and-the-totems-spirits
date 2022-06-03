@@ -437,8 +437,8 @@ public class NewPlayerController : MonoBehaviour
                 break;
         }
         Destroy(other);
-        Instantiate(itemCheck, pointInnitParticle.position, pointInnitParticle.rotation);
-        yield return new WaitForSeconds(2f);
+        Instantiate(itemCheck, pointInnitParticle.position, Quaternion.Euler(new Vector3(-90, 135, 135)));
+        yield return new WaitForSeconds(3f);
         
         isTransforPower = true;
     }

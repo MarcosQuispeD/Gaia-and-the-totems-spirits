@@ -258,8 +258,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908954914}
-  m_LocalRotation: {x: -0, y: -0, z: -0.0023897768, w: 0.99999714}
-  m_LocalPosition: {x: 0.04, y: 1.67, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.05, y: 3.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5290990948815745113}
@@ -279,23 +279,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.589
+  m_FalloffIntensity: 0.622
   m_Color: {r: 0.99324894, g: 1, b: 0.8820755, a: 1}
-  m_Intensity: 1.2
-  m_LightVolumeOpacity: 0.029
-  m_ApplyToSortingLayers: 00000000
+  m_Intensity: 1.1
+  m_LightVolumeOpacity: 0.016
+  m_ApplyToSortingLayers: 000000008fb23083
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: -18
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 31.8
-  m_PointLightDistance: 3
-  m_PointLightQuality: 1
+  m_PointLightOuterRadius: 30.72
+  m_PointLightDistance: 18.04
+  m_PointLightQuality: 0
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -330,8 +330,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153718980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.21, y: 3.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.41, y: -1.98, z: 0}
+  m_LocalScale: {x: 1.2875, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5290990948815745113}
   m_RootOrder: 7
@@ -5169,7 +5169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092074301}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.665985, y: 7.451996, z: -10}
+  m_LocalPosition: {x: 4.7550964, y: 7.451996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5290990948815745113}
@@ -5455,8 +5455,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2093960561
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 27bd1b98fcc67b94e9571fae1dd980a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5510,7 +5510,7 @@ MonoBehaviour:
   itemDash: 0
   dashForce: 5000
   movementSpeed: 21
-  jumpForce: 23
+  jumpForce: 20
   rayLenght: 5.34
   rayPositionOffset: 0.8
   bulletPrefab: {fileID: 5161945545434571250, guid: dfd80fb70ae401a478cf689bd2bdef0b, type: 3}

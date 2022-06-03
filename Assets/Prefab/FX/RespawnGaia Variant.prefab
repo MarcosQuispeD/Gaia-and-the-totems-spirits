@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 3}
+      propertyPath: lengthInSec
+      value: 1.74
+      objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
       value: 3
