@@ -7,8 +7,7 @@ public class ItemController : MonoBehaviour
     public string itemType;
     public GameObject pickUpEffect;
     //Sounds
-    public AudioClip[] audiosIt;
-    public AudioSource audioPlayerIt;
+    
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,7 +16,7 @@ public class ItemController : MonoBehaviour
             if (itemType == "Health")
             {
                 GiveHealth();
-                LifeSound();
+               
             }
 
             if (itemType == "Speed")
@@ -50,11 +49,7 @@ public class ItemController : MonoBehaviour
 
 
     }
-    public void LifeSound()
-    {
-        audioPlayerIt.clip = audiosIt[0];
-        audioPlayerIt.Play();
-    }
+    
 
     //private void OnTriggerEnter(Collider other)
     //{
