@@ -42,7 +42,7 @@ public class Enemy_Bullet_two : MonoBehaviour
                     rb.velocity = new Vector2(0, transform.position.y > 0?(-transform.position.y * speed) : transform.position.y * speed);
                     break;
                 default:
-                    speed = 15f;
+                    speed = 20f;
                     player = GameObject.FindGameObjectsWithTag("Player")[0];
                     if (player!= null)
                     {
@@ -73,7 +73,7 @@ public class Enemy_Bullet_two : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Enemy_Four"))
+        if (!collision.gameObject.CompareTag("Enemy_Four") && !collision.gameObject.CompareTag("Confinder"))
         {
             InstateParticle();
             Destroy(gameObject);

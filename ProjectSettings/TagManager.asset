@@ -15,6 +15,7 @@ TagManager:
   - head
   - Escene_1
   - Totem
+  - Confinder
   layers:
   - Default
   - TransparentFX
