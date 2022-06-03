@@ -421,7 +421,7 @@ Transform:
   - {fileID: 1126144899}
   - {fileID: 2049220640}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &151485723
 GameObject:
@@ -728,7 +728,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &247606524
 BoxCollider2D:
@@ -77584,7 +77584,7 @@ Transform:
   - {fileID: 951819899}
   - {fileID: 358953891}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &833118732
 GameObject:
@@ -88848,7 +88848,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1025821479
 BoxCollider2D:
@@ -89121,7 +89121,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1059252917
 BoxCollider2D:
@@ -90023,7 +90023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7706169877856696093, guid: cc83da53754b7034b9b60e90dd304a56, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7706169877856696093, guid: cc83da53754b7034b9b60e90dd304a56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -90210,7 +90210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7683249627197954974, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7683249627197954974, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
       propertyPath: m_AnchorMax.x
@@ -90448,7 +90448,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049220638
 GameObject:

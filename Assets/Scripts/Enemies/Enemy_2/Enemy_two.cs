@@ -17,7 +17,6 @@ public class Enemy_two : Entity_enemy
     float live;
     public static Enemy_two instace;
 
-
     // Start is called before the first frame update
     public override void Start()
     {
