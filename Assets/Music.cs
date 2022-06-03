@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Music : MonoBehaviour
 {
@@ -8,12 +9,12 @@ public class Music : MonoBehaviour
     public AudioSource audioPlayerMs;
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
 
     //void OnT(Collision2D collision)
@@ -28,14 +29,27 @@ public class Music : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerCollider")
         {
-            RepoMusic();
+
+            switch (SceneManager.GetActiveScene().buildIndex)
+            {
+                case 1:
+                    RepoMusic();
+                    break;
+                case 2:
+                case 3:
+                    BattleMusic();
+                    break;
+            }
+
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
+
+        
     }
 
     public void BattleMusic()
     {
-        audioPlayerMs.clip = audiosMs[0];
+        audioPlayerMs.clip = audiosMs[1];
         audioPlayerMs.Play();
     }
     public void RepoMusic()

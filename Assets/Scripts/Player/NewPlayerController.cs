@@ -415,8 +415,6 @@ public class NewPlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
-
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -478,8 +476,8 @@ public class NewPlayerController : MonoBehaviour
     {
         audioPlayerPl.clip = audiosPl[5];
         audioPlayerPl.Play();
-    } 
-    
+    }
+
     public void LifeSound()
     {
         audioPlayerPl.clip = audiosPl[6];
