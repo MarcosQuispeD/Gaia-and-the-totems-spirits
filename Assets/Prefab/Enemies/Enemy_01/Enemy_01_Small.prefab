@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 1
+  toFarDistance: 25
+  toCloseDistance: 2
 --- !u!50 &98763977
 Rigidbody2D:
   serializedVersion: 4

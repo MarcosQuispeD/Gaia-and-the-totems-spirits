@@ -10,6 +10,7 @@ public class Entity_enemy : MonoBehaviour
     private AudioSource _myAudioSource;
     private SpriteRenderer _mySprite;
     
+    
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -119,9 +120,9 @@ public class Entity_enemy : MonoBehaviour
 
     public IEnumerator Rebote()
     {
-        _speed = _speed * -3;
+        _speed = _speed * -7;
         yield return new WaitForSeconds(0.5f);
-        _speed = _speed / -3;
+        _speed = _speed / -7;
 
     }
 

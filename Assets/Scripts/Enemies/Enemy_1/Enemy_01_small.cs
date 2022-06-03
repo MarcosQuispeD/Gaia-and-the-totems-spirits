@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy_01_small : Entity_enemy
 {
+    public float toFarDistance;
+    public float toCloseDistance;
+
     public override void Start()
     {
         base.Start();
@@ -13,7 +16,16 @@ public class Enemy_01_small : Entity_enemy
     public override void Update()
     {
         base.Update();
-        Follow(_player);
+        
+        if (Vector3.Distance(transform.position, _player.transform.position) < toFarDistance && Vector3.Distance(transform.position, _player.transform.position) > toCloseDistance )
+        {
+            Follow(_player);
+        }
+        else
+        {
+            
+        }
+       
     }
 
    
