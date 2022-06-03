@@ -45,6 +45,10 @@ public class PlayerStats : MonoBehaviour
         if (collision.gameObject.tag == "HealthReg")
         {
             currentHealth+=2;
+            if (currentHealth > 10)
+            {
+                currentHealth = 10;
+            }
             healthBar.SetHealth(currentHealth);
         }
         if (collision.gameObject.tag == "Traps")
