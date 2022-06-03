@@ -489,7 +489,7 @@ Transform:
   m_Children:
   - {fileID: 684131110}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &151485726
 MonoBehaviour:
@@ -76614,7 +76614,7 @@ GameObject:
   - component: {fileID: 418862033}
   m_Layer: 0
   m_Name: Confinde
-  m_TagString: Untagged
+  m_TagString: Confinder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76891,7 +76891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7508506307197095227, guid: 129afe07e3868aa4ab14a3a01e211914, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7508506307197095227, guid: 129afe07e3868aa4ab14a3a01e211914, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76996,7 +76996,7 @@ PrefabInstance:
       objectReference: {fileID: 51975862}
     - target: {fileID: 5290990948815745113, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745113, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -89968,7 +89968,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1395007762
 BoxCollider2D:
@@ -90448,7 +90448,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049220638
 GameObject:
