@@ -73,8 +73,7 @@ public class Entity_enemy : MonoBehaviour
 
             Damage(1);
         }
-        else
-        //if (collision.gameObject.tag == "Player")
+        else if (collision.gameObject.tag == "Player")
         {
             StartCoroutine(Rebote());
 
