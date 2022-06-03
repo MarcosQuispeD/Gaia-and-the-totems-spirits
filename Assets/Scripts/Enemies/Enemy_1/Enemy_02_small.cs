@@ -36,7 +36,10 @@ public class Enemy_02_small : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D other) 
     {
-        Destroy(gameObject);
+        if (!other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("Confinder"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

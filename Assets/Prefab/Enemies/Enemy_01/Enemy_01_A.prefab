@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,6 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 6
+  toFarDistance: 25
+  toCloseDistance: 2
   enemy01B: {fileID: 2256248911525958694, guid: 60e71b99d50bf204b8688a45b7d3c44f, type: 3}
 --- !u!82 &8314815506935934791
 AudioSource:
