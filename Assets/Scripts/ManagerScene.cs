@@ -9,6 +9,7 @@ public class ManagerScene : MonoBehaviour
     public static ManagerScene instance;
     public int scene;
     public bool check;
+    public GameObject BlockTree;
     void Awake()
     {
         if (instance == null)
@@ -26,7 +27,10 @@ public class ManagerScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (check)
+        {
+            Destroy(BlockTree);
+        }
     }
 
 
