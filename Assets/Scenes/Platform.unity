@@ -77237,6 +77237,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1340742269}
     - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: audiosPl.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 01d7c5be5943a79469c410f57b8ef7ae, type: 3}
+    - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: cameraList.Array.data[0]
       value: 
       objectReference: {fileID: 151485723}
