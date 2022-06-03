@@ -73083,7 +73083,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -23.119778, y: -24.74857}
+  m_Offset: {x: -28.460102, y: -24.767374}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -73094,7 +73094,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.97686, y: 11.044212}
+  m_Size: {x: 4.9990616, y: 8.674915}
   m_EdgeRadius: 0
 --- !u!4 &943707718
 Transform:
@@ -73124,6 +73124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: 3
   check: 0
+  BlockTree: {fileID: 1546293331}
 --- !u!1 &973768279
 GameObject:
   m_ObjectHideFlags: 0
@@ -89932,6 +89933,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
+--- !u!1 &1546293331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2358873150436310981, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
+  m_PrefabInstance: {fileID: 1546293330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1621357208
 GameObject:
   m_ObjectHideFlags: 0
