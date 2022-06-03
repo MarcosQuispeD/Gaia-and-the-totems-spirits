@@ -77244,6 +77244,14 @@ PrefabInstance:
       propertyPath: cameraList.Array.data[1]
       value: 
       objectReference: {fileID: 51975862}
+    - target: {fileID: 2092074305, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.7550964
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092074305, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.451996
+      objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745113, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -90290,49 +90298,6 @@ Transform:
   m_Father: {fileID: 143501031}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 157.998}
---- !u!1 &1228464320 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7706169877856696091, guid: cc83da53754b7034b9b60e90dd304a56, type: 3}
-  m_PrefabInstance: {fileID: 1531783614}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1228464321
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228464320}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.52, y: 3.62}
-    newSize: {x: 1.52, y: 3.62}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.52, y: 3.62}
-  m_EdgeRadius: 0
---- !u!114 &1228464322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228464320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d4417725ace3ec469ff7f2b3f4c4c5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1229835641
 GameObject:
   m_ObjectHideFlags: 0
