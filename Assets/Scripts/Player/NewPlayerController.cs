@@ -76,6 +76,10 @@ public class NewPlayerController : MonoBehaviour
     public float extraJumpCount;
     public float extraJumpForce;
 
+    //Sounds
+    public AudioClip[] audiosPl;
+    public AudioSource audioPlayerPl;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -153,6 +157,7 @@ public class NewPlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
             {
                 _myAnim.SetBool("Jump", true);
+                JumpOneSound();
             }
             else
             {
@@ -174,6 +179,7 @@ public class NewPlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true && itemDash)
             {
                 _myAnim.SetBool("Dash", true);
+                
             }
             else
             {
@@ -204,6 +210,7 @@ public class NewPlayerController : MonoBehaviour
 
         }
 
+       
     }
 
     private void FixedUpdate()
@@ -255,6 +262,7 @@ public class NewPlayerController : MonoBehaviour
 
         PlayerAfterImagePool.Instance.GetFromPool();
         lastImageXpos = transform.position.x;
+        DashSound();
     }
 
     private void CheckDash()
@@ -297,6 +305,7 @@ public class NewPlayerController : MonoBehaviour
             Debug.Log("entro salto");
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             extraJumpCount++;
+            JumpTwoSound();
 
         }
         else if (canJump == false)
@@ -388,6 +397,7 @@ public class NewPlayerController : MonoBehaviour
         Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
 
         lastShoot = Time.time;
+        ShootSound();
     }
 
     private void CreateDust()
@@ -432,4 +442,28 @@ public class NewPlayerController : MonoBehaviour
         
         isTransforPower = true;
     }
+
+    //SOUND
+    
+    public void JumpOneSound()
+    {
+        audioPlayerPl.clip = audiosPl[0];
+        audioPlayerPl.Play();
+    }
+    public void JumpTwoSound()
+    {
+        audioPlayerPl.clip = audiosPl[1];
+        audioPlayerPl.Play();
+    }
+    public void DashSound()
+    {
+        audioPlayerPl.clip = audiosPl[2];
+        audioPlayerPl.Play();
+    }
+    public void ShootSound()
+    {
+        audioPlayerPl.clip = audiosPl[3];
+        audioPlayerPl.Play();
+    }
+
 }
