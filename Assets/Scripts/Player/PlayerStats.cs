@@ -9,6 +9,8 @@ public class PlayerStats : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
     public SpriteRenderer _mySprite, _headSprite;
+    public AudioClip[] audiosIt;
+    public AudioSource audioPlayerIt;
     void Start()
     {
         currentHealth = maxHealth;
@@ -44,7 +46,8 @@ public class PlayerStats : MonoBehaviour
         }
         if (collision.gameObject.tag == "HealthReg")
         {
-            currentHealth+=2;
+            LifeSound();
+            currentHealth +=2;
             if (currentHealth > 10)
             {
                 currentHealth = 10;
@@ -70,6 +73,7 @@ public class PlayerStats : MonoBehaviour
 
     void TakeDamage()
     {
+        DamageSound();
         StartCoroutine(Feedback());
         currentHealth --;
         healthBar.SetHealth(currentHealth);
@@ -81,6 +85,16 @@ public class PlayerStats : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         _mySprite.color = Color.white;
         _headSprite.color = Color.white;
+    }
+    public void LifeSound()
+    {
+        audioPlayerIt.clip = audiosIt[0];
+        audioPlayerIt.Play();
+    }
+    public void DamageSound()
+    {
+        audioPlayerIt.clip = audiosIt[1];
+        audioPlayerIt.Play();
     }
 
 }

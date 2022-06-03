@@ -179,7 +179,7 @@ public class NewPlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftControl) && canDash == true && itemDash)
             {
                 _myAnim.SetBool("Dash", true);
-                
+
             }
             else
             {
@@ -210,12 +210,13 @@ public class NewPlayerController : MonoBehaviour
 
         }
 
-       
+
     }
 
     private void FixedUpdate()
     {
-        if (isTransforPower) { 
+        if (isTransforPower)
+        {
             ApplyMovement();
             if (isDashing)
             {
@@ -333,7 +334,7 @@ public class NewPlayerController : MonoBehaviour
             transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             CreateDust();
         }
-        
+
     }
     public void CheckJump()
     {
@@ -415,13 +416,14 @@ public class NewPlayerController : MonoBehaviour
             SceneManager.LoadScene(1);
         }
 
-       
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Totem"))
         {
+            TotemSound();
             StartCoroutine(EffectTotems(collision.gameObject));
         }
     }
@@ -431,7 +433,7 @@ public class NewPlayerController : MonoBehaviour
         _myAnim.SetBool("Walk", false);
         isTransforPower = false;
         rb.velocity = Vector2.zero;
-      
+
         switch (other.GetComponent<Totems>().Type)
         {
             case TypeTotems.eagle:
@@ -450,7 +452,7 @@ public class NewPlayerController : MonoBehaviour
     }
 
     //SOUND
-    
+
     public void JumpOneSound()
     {
         audioPlayerPl.clip = audiosPl[0];
@@ -469,6 +471,18 @@ public class NewPlayerController : MonoBehaviour
     public void ShootSound()
     {
         audioPlayerPl.clip = audiosPl[3];
+        audioPlayerPl.Play();
+    }
+
+    public void TotemSound()
+    {
+        audioPlayerPl.clip = audiosPl[5];
+        audioPlayerPl.Play();
+    } 
+    
+    public void LifeSound()
+    {
+        audioPlayerPl.clip = audiosPl[6];
         audioPlayerPl.Play();
     }
 
