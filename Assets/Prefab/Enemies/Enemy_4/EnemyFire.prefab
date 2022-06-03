@@ -9983,6 +9983,8 @@ MonoBehaviour:
   - {fileID: 8573530169037909167}
   - {fileID: 8573530169507494645}
   - {fileID: 8573530170132414879}
+  - {fileID: 0}
+  - {fileID: 0}
   wayPointsShoot:
   - {fileID: 8573530170505041709}
   - {fileID: 8573530169037909160}
@@ -9992,6 +9994,8 @@ MonoBehaviour:
   distance: 0.01
   nextPoint: 0
   particle: {fileID: 1958212934}
+  spped: 15
+  ligtFlower: {fileID: 0}
 --- !u!212 &8573530170357278542
 SpriteRenderer:
   m_ObjectHideFlags: 0

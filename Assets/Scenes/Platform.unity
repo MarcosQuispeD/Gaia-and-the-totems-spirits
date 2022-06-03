@@ -90996,6 +90996,7 @@ GameObject:
   - component: {fileID: 1395007761}
   - component: {fileID: 1395007762}
   - component: {fileID: 1395007763}
+  - component: {fileID: 1395007764}
   m_Layer: 0
   m_Name: GameObject (2)
   m_TagString: Escene_1
@@ -91058,6 +91059,22 @@ MonoBehaviour:
   scene: 2
   check: 0
   BlockTree: {fileID: 1821597354}
+--- !u!114 &1395007764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395007760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72fc26a60a4944f42bcb2d6bd536cc54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialegLines:
+  - Consigue la flor de luz para poder avanzar
+  dialogPanel: {fileID: 1295873399}
+  dialogtext: {fileID: 992347190}
 --- !u!1001 &1487581409
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,8 +14,10 @@ public class Enemy_two : Entity_enemy
     bool standPosition = false;
     float timeMechanics = 0;
     public ParticleSystem particle;
+    public float spped;
     float live;
     public static Enemy_two instace;
+    public GameObject ligtFlower;
 
     // Start is called before the first frame update
     public override void Start()
@@ -28,10 +30,14 @@ public class Enemy_two : Entity_enemy
     // Update is called once per frame
     public override void Update()
     {
+        if (_life < 1 && ligtFlower != null)
+        {
+            ligtFlower.SetActive(true);
+        }
         base.Update();
         NextWayPoints();
         timeMechanics += Time.deltaTime;
-        if (timeMechanics >= 2f)
+        if (timeMechanics >= 2.5f)
         {
             MechanicRandom();
         }
@@ -39,7 +45,7 @@ public class Enemy_two : Entity_enemy
 
     void NextWayPoints()
     {
-        transform.position = Vector2.MoveTowards(transform.position, wayPoints[nextPoint].transform.position, _speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, wayPoints[nextPoint].transform.position, spped * Time.deltaTime);
         FlipEnemy();
         if (Vector2.Distance(transform.position, wayPoints[nextPoint].transform.position) < distance && !standPosition)
         {
@@ -83,7 +89,7 @@ public class Enemy_two : Entity_enemy
     IEnumerator NextPoint()
     {
         standPosition = true;
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.5f);
         standPosition = false;
         if (_life < live / 2)
         {
