@@ -77237,10 +77237,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1340742269}
     - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
-      propertyPath: audiosPl.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 01d7c5be5943a79469c410f57b8ef7ae, type: 3}
-    - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: cameraList.Array.data[0]
       value: 
       objectReference: {fileID: 151485723}
@@ -77248,14 +77244,6 @@ PrefabInstance:
       propertyPath: cameraList.Array.data[1]
       value: 
       objectReference: {fileID: 51975862}
-    - target: {fileID: 2092074305, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.7550964
-      objectReference: {fileID: 0}
-    - target: {fileID: 2092074305, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.451996
-      objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745113, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_RootOrder
       value: 10

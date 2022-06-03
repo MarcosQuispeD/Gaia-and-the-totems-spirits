@@ -207,7 +207,7 @@ public class NewPlayerController : MonoBehaviour
                 _myAnim.SetBool("Death", false);
             }
             //Para animaciones
-
+                        
         }
 
 
@@ -294,7 +294,7 @@ public class NewPlayerController : MonoBehaviour
     private void ApplyMovement()
     {
         rb.velocity = new Vector2(movementInputDirection * movementSpeed, rb.velocity.y);
-
+        
     }
 
     private void Jump()
@@ -483,5 +483,11 @@ public class NewPlayerController : MonoBehaviour
         audioPlayerPl.clip = audiosPl[6];
         audioPlayerPl.Play();
     }
+    public void StepsSound()
+    {
+        audioPlayerPl.clip = audiosPl[7];
+        audioPlayerPl.Play();
+    }
+
 
 }
