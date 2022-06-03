@@ -23,7 +23,6 @@ public class PlayerStats : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            gameObject.SetActive(false);
             SceneManager.LoadScene(0);
         }
         
