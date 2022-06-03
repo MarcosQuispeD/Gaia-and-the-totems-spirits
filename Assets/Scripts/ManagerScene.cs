@@ -37,6 +37,10 @@ public class ManagerScene : MonoBehaviour
 
             SceneManager.LoadScene(scene);
         }
+        else
+        {
+            Debug.Log("Collision");
+        }
       
     }
 }
