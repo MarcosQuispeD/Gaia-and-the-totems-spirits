@@ -415,9 +415,14 @@ public class NewPlayerController : MonoBehaviour
             SceneManager.LoadScene(1);
         }
 
-        if (other.CompareTag("Totem"))
+       
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Totem"))
         {
-            StartCoroutine(EffectTotems(other.gameObject));
+            StartCoroutine(EffectTotems(collision.gameObject));
         }
     }
 
@@ -436,10 +441,11 @@ public class NewPlayerController : MonoBehaviour
                 itemDash = true;
                 break;
         }
-        Destroy(other);
+        other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         Instantiate(itemCheck, pointInnitParticle.position, Quaternion.Euler(new Vector3(-90, 135, 135)));
+        Totems.instance.ActivatePanel();
         yield return new WaitForSeconds(3f);
-        
         isTransforPower = true;
     }
 

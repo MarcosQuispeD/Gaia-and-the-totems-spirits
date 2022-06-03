@@ -598,6 +598,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstaculo
       objectReference: {fileID: 0}
+    - target: {fileID: 3922202876973324951, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922202876973324951, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.98
+      objectReference: {fileID: 0}
     - target: {fileID: 5535683884808956837, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -641,6 +649,14 @@ PrefabInstance:
     - target: {fileID: 5535683884808956837, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154514072643686284, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154514072643686284, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
@@ -78485,8 +78501,9 @@ GameObject:
   - component: {fileID: 888923181}
   - component: {fileID: 888923183}
   - component: {fileID: 888923184}
+  - component: {fileID: 888923185}
   m_Layer: 0
-  m_Name: Mossy - Decorations&Hazards_18
+  m_Name: Tronco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78597,6 +78614,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: Collision
   pickUpEffect: {fileID: 0}
+--- !u!114 &888923185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888923180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5fe27556fb5954ebb5906bc6f0cc7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialegLines:
+  - Obten el totem del aguila para poder avanzar a la siguiente zona
+  dialogPanel: {fileID: 1295873399}
+  dialogtext: {fileID: 992347190}
 --- !u!1 &951819898
 GameObject:
   m_ObjectHideFlags: 0
@@ -89141,6 +89174,17 @@ Transform:
   m_Father: {fileID: 143501031}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &992347190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 992347190, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
+  m_PrefabInstance: {fileID: 1692822425}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1025821476
 GameObject:
   m_ObjectHideFlags: 0
@@ -90283,7 +90327,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.018984795, y: -1.0168686}
@@ -90312,6 +90356,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 0
+  dialegLines:
+  - Conseguiste el totem del aguila, ahora podras realizar un doble salto
+  dialogPanel: {fileID: 1295873399}
+  dialogtext: {fileID: 992347190}
 --- !u!1001 &1286194342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90397,6 +90445,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2586ab40cbaf1b40ac60bdf313eb653, type: 3}
+--- !u!1 &1295873399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1295873399, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
+  m_PrefabInstance: {fileID: 1692822425}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1301027338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90900,34 +90953,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 302277765277321469, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 302277765277321469, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: m_Volume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 302277765277321469, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 302277765277321469, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003668776271774355, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 62.199997
-      objectReference: {fileID: 0}
-    - target: {fileID: 3067849466234472246, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3067849466234472246, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 413
-      objectReference: {fileID: 0}
     - target: {fileID: 3264412724963114194, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -90939,26 +90964,6 @@ PrefabInstance:
     - target: {fileID: 7683249627197954969, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
       propertyPath: m_Name
       value: CanvasGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683249627197954972, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: m_ScreenMatchMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683249627197954973, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683249627197954973, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683249627197954973, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683249627197954973, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
-      propertyPath: m_PlaneDistance
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7683249627197954974, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
       propertyPath: m_Pivot.x
