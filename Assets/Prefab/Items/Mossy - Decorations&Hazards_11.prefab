@@ -85,7 +85,6 @@ GameObject:
   - component: {fileID: 1228464321}
   - component: {fileID: 1228464325}
   - component: {fileID: 1228464322}
-  - component: {fileID: 563878403}
   m_Layer: 0
   m_Name: Mossy - Decorations&Hazards_11
   m_TagString: Untagged
@@ -296,17 +295,3 @@ MonoBehaviour:
   audiosIt:
   - {fileID: 8300000, guid: b53dc064faf98444a9fcacdc90d36e4a, type: 3}
   audioPlayerIt: {fileID: 1228464325}
---- !u!114 &563878403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7706169877856696091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d4417725ace3ec469ff7f2b3f4c4c5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audiosIt: []
-  audioPlayerIt: {fileID: 0}
