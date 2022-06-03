@@ -7,7 +7,8 @@ public class ItemController : MonoBehaviour
     public string itemType;
     public GameObject pickUpEffect;
     //Sounds
-    
+    public AudioClip[] audiosIt;
+    public AudioSource audioPlayerIt;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -26,9 +27,13 @@ public class ItemController : MonoBehaviour
 
             if (itemType == "Collision" && collision.gameObject.GetComponent<NewPlayerController>().extraJumps == 1f)
             {
+                WoodSound();
                 collision.gameObject.GetComponent<NewPlayerController>().cameraList[0].SetActive(false);
                 collision.gameObject.GetComponent<NewPlayerController>().cameraList[1].SetActive(true);
-                Destroy(gameObject);
+                GetComponent<SpriteRenderer>().enabled = false;
+                GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<DialogController>().enabled = false;
+                
             }
             
 
@@ -49,8 +54,12 @@ public class ItemController : MonoBehaviour
 
 
     }
-    
 
+    public void WoodSound()
+    {
+        audioPlayerIt.clip = audiosIt[0];
+        audioPlayerIt.Play();
+    }
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.CompareTag("PLayer"))

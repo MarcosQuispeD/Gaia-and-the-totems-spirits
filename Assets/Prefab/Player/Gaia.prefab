@@ -5535,8 +5535,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 320b4a113a1fc3746b2d08f390d83126, type: 3}
   - {fileID: 8300000, guid: 381a6d26542f3f040b7b94007a26c094, type: 3}
   - {fileID: 8300000, guid: fc54cfa279e1994449e0c2e56ade400c, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 13604cb7051d30840a24794c4ce6b452, type: 3}
+  - {fileID: 8300000, guid: 81b53125a2c066647904e9dbcf721f87, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -5558,6 +5558,10 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   _mySprite: {fileID: 133236080}
   _headSprite: {fileID: 0}
+  audiosIt:
+  - {fileID: 8300000, guid: 81b53125a2c066647904e9dbcf721f87, type: 3}
+  - {fileID: 8300000, guid: fc54cfa279e1994449e0c2e56ade400c, type: 3}
+  audioPlayerIt: {fileID: 1331571478}
 --- !u!82 &1331571478
 AudioSource:
   m_ObjectHideFlags: 0
