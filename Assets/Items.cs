@@ -11,7 +11,7 @@ public class Items : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         KeySound();
-        ManagerScene.instance.check = true;
+        NewScene.instance.check = true;
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponentInChildren<Light2D>().enabled = false;

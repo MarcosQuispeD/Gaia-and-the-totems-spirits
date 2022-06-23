@@ -13,8 +13,27 @@ public class PlayerStats : MonoBehaviour
     public AudioSource audioPlayerIt;
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        if (ManagerScene.instance == null)
+        {
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
+        else
+        {
+            if (!ManagerScene.instance.isInnitGame)
+            {
+                currentHealth = PlayerPrefs.GetInt("Life", 0);
+                healthBar.SetHealth(currentHealth);
+            }
+            else
+            {
+                currentHealth = maxHealth;
+                ManagerScene.instance.isInnitGame = false;
+                healthBar.SetMaxHealth(maxHealth);
+            }
+        }
+      
+       
         _mySprite = GetComponent<SpriteRenderer>();
         
     }
@@ -23,6 +42,10 @@ public class PlayerStats : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            if (ManagerScene.instance != null)
+            {
+                ManagerScene.instance.isInnitGame = true;
+            }
             SceneManager.LoadScene(0);
         }
         

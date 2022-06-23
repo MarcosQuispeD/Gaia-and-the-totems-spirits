@@ -7,13 +7,14 @@ public class ManagerScene : MonoBehaviour
 {
 
     public static ManagerScene instance;
-    public int scene;
-    public bool check;
-    public GameObject BlockTree;
+
+    protected float live;
+    public bool isInnitGame;
     void Awake()
     {
         if (instance == null)
         {
+            isInnitGame = true;
             instance = this;
         }
     }
@@ -21,30 +22,13 @@ public class ManagerScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (check)
-        {
-            Destroy(BlockTree);
-        }
-    }
+   
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("PlayerCollider") && check)
-        {
+   
 
-            SceneManager.LoadScene(scene);
-        }
-        else
-        {
-            Debug.Log("Collision");
-        }
-      
-    }
 }

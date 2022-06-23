@@ -51,17 +51,17 @@ public class NewSceneDialog : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerCollider") && !isPlayerInrRange && !ManagerScene.instance.check)
+        if (collision.gameObject.CompareTag("Player") && !isPlayerInrRange && !NewScene.instance.check)
         {
             isPlayerInrRange = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerCollider") && isPlayerInrRange)
+        if (collision.gameObject.CompareTag("Player") && isPlayerInrRange)
         {
             isPlayerInrRange = false;
             StopAllCoroutines();

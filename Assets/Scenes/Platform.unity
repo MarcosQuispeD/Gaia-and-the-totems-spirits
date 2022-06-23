@@ -660,6 +660,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
+--- !u!1 &235979941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2358873150436310981, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
+  m_PrefabInstance: {fileID: 235979940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &247606521
 GameObject:
   m_ObjectHideFlags: 0
@@ -90987,8 +90992,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1395007761}
   - component: {fileID: 1395007762}
-  - component: {fileID: 1395007763}
   - component: {fileID: 1395007764}
+  - component: {fileID: 1395007763}
   m_Layer: 0
   m_Name: GameObject (2)
   m_TagString: Escene_1
@@ -91020,7 +91025,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -91.62318, y: -13.576015}
@@ -91045,12 +91050,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1395007760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e667b39d8df8e47908a259e2965a2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4552256d195dfe144b96d1d2f07b9778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 2
   check: 0
-  BlockTree: {fileID: 1821597354}
+  BlockTree: {fileID: 235979941}
 --- !u!114 &1395007764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91561,11 +91566,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.883511, y: 2.4139042}
   m_EdgeRadius: 0
---- !u!1 &1821597354 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2358873150436310981, guid: 5171e2e1300dbee4d8bad9887192d39c, type: 3}
-  m_PrefabInstance: {fileID: 235979940}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1979493577
 GameObject:
   m_ObjectHideFlags: 0
