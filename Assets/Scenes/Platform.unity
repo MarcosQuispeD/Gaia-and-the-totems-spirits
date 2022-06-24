@@ -77249,6 +77249,14 @@ PrefabInstance:
       propertyPath: cameraList.Array.data[1]
       value: 
       objectReference: {fileID: 51975862}
+    - target: {fileID: 2092074305, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.7550964
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092074305, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.451996
+      objectReference: {fileID: 0}
     - target: {fileID: 5290990948815745113, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -77581,7 +77589,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3142856237357742515, guid: 8e4d22dd3d0ee2041b11862d3fae1f1d, type: 3}
   m_Color: {r: 0.99215686, g: 0.6117647, b: 0.47058824, a: 1}
   m_FlipX: 0
