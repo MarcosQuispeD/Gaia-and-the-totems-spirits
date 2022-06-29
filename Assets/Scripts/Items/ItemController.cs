@@ -23,19 +23,18 @@ public class ItemController : MonoBehaviour
             if (itemType == "Speed")
             {
                 GiveSpeed(); 
-            }
+            } 
+        }
 
-            if (itemType == "Collision" && collision.gameObject.GetComponent<NewPlayerController>().extraJumps == 1f)
-            {
-                WoodSound();
-                collision.gameObject.GetComponent<NewPlayerController>().cameraList[0].SetActive(false);
-                collision.gameObject.GetComponent<NewPlayerController>().cameraList[1].SetActive(true);
-                GetComponent<SpriteRenderer>().enabled = false;
-                GetComponent<BoxCollider2D>().enabled = false;
-                GetComponent<DialogController>().enabled = false;
-                
-            }
-            
+        if (collision.gameObject.tag == "Rock")
+        {
+            WoodSound();
+            //collision.gameObject.GetComponent<NewPlayerController>().cameraList[0].SetActive(false);
+            //collision.gameObject.GetComponent<NewPlayerController>().cameraList[1].SetActive(true);
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<DialogController>().enabled = false;
+            Destroy(collision.gameObject);
 
         }
     }
