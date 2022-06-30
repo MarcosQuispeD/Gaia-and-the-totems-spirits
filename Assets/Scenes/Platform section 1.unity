@@ -75563,6 +75563,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1295873399, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
   m_PrefabInstance: {fileID: 485329454}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &485329458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 467213379, guid: 11497893700111e4c9f39e52ae3e96a9, type: 3}
+  m_PrefabInstance: {fileID: 485329454}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7bd3b8e79ae8845a70c43e44bd54e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &495381686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95913,6 +95924,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1865517000}
     - target: {fileID: 908954916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: m_Intensity
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 908954916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -95923,6 +95938,14 @@ PrefabInstance:
     - target: {fileID: 908954916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[1]
       value: -1775162727
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: ligthBar
+      value: 
+      objectReference: {fileID: 485329458}
+    - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: maxTimer
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: itemCheck
@@ -95940,6 +95963,10 @@ PrefabInstance:
       propertyPath: extraJumps
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: pointLight2D
+      value: 
+      objectReference: {fileID: 1230039059}
     - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: audiosPl.Array.data[7]
       value: 
@@ -96058,6 +96085,17 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1230039059 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 908954916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+  m_PrefabInstance: {fileID: 1230039055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1247572238
 GameObject:
   m_ObjectHideFlags: 0

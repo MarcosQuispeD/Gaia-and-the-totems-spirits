@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public enum TypeTotems
@@ -11,6 +13,13 @@ public enum TypeTotems
 
 public class NewPlayerController : MonoBehaviour
 {
+    public int maxligth = 2;
+    public int currentligth;
+    public LigthBar ligthBar;
+    public float maxTimer;
+    public float timer;
+    public Light2D pointLight2D;
+
     public List<GameObject> cameraList = new List<GameObject>();
     public GameObject itemCheck;
     public Transform pointInnitParticle;
@@ -91,6 +100,8 @@ public class NewPlayerController : MonoBehaviour
     private void Start()
     {
         normalGravity = rb.gravityScale;
+        currentligth = maxligth;
+        ligthBar.SetMaxHealth(maxligth);
     }
 
     private void Update()
@@ -215,12 +226,38 @@ public class NewPlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        LigthPlayer();
+
         if (isTransforPower)
         {
             ApplyMovement();
             if (isDashing)
             {
                 rb.AddForce(new Vector2(movementInputDirection * dashForce * Time.deltaTime, 0), ForceMode2D.Impulse);
+            }
+        }
+    }
+
+    public void LigthPlayer()
+    {
+        if (pointLight2D.intensity != 0.7)
+        {
+            if (maxTimer >= timer)
+            {
+                timer += Time.deltaTime * 0.1f;
+            }
+            else
+            {
+                if (pointLight2D.intensity <= 0.7f)
+                {
+                    pointLight2D.intensity = 0.7f;
+                }
+                else
+                {
+                    ligthBar.slider.value -= 0.49f;
+                    pointLight2D.intensity -= 0.2f;
+                }
+                timer = 0;
             }
         }
     }

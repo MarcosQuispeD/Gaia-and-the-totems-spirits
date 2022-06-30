@@ -35,6 +35,14 @@ public class NewScene : MonoBehaviour
             check = false;
             Debug.Log(collision.gameObject.GetComponentInParent<PlayerStats>().currentHealth);
             PlayerPrefs.SetInt("Life", collision.gameObject.GetComponentInParent<PlayerStats>().currentHealth);
+            if (scene == 0)
+            {
+                ManagerScene.instance.DestroyObject();
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Life", collision.gameObject.GetComponentInParent<PlayerStats>().currentHealth);
+            }
             SceneManager.LoadScene(scene);
         }
         else

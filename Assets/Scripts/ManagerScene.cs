@@ -25,6 +25,11 @@ public class ManagerScene : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
+
     // Update is called once per frame
    
 
