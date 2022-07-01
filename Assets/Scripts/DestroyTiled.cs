@@ -21,7 +21,10 @@ public class DestroyTiled : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            florLigth.SetActive(true);
+            if (florLigth != null)
+            {
+                florLigth.SetActive(true);
+            }
             Destroy(gameObject);
         }
     }

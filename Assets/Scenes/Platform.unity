@@ -95884,7 +95884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialegLines:
-  - Obten el totem del aguila para poder avanzar a la siguiente zona
+  - Destruye la rama para avanzar
   dialogPanel: {fileID: 1295873399}
   dialogtext: {fileID: 992347190}
 --- !u!82 &888923186
@@ -110633,7 +110633,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 0.03529412, a: 1}
+  m_Color: {r: 0.21782485, g: 0.6698113, b: 0, a: 1}
   m_Origin: {x: 0, y: -7, z: 0}
   m_Size: {x: 75, y: 27, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -111747,7 +111747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialegLines:
-  - Consigue la flor de luz para poder avanzar
+  - Destruye el bloque para avanzar
   dialogPanel: {fileID: 1295873399}
   dialogtext: {fileID: 992347190}
 --- !u!1001 &1487581409

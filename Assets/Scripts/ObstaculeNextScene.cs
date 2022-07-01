@@ -9,7 +9,11 @@ public class ObstaculeNextScene : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BulletSpecial"))
         {
-            NewScene.instance.check = true;
+            if (NewScene.instance)
+            {
+                NewScene.instance.check = true;
+            }
+           
             Destroy(gameObject);
         }
     }

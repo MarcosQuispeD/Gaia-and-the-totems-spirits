@@ -76478,7 +76478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialegLines:
-  - Consigue la flor de luz para poder avanzar
+  - Destruye el bloque para avanzar
   dialogPanel: {fileID: 485329457}
   dialogtext: {fileID: 485329456}
 --- !u!1 &973768279
