@@ -119,6 +119,7 @@ public class Enemy_two : Entity_enemy
         base.OnCollisionEnter2D(collision);
         if (collision.gameObject.tag == "Bullet")
         {
+            NewScene.instance.deathEnemy = true;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "Player")
@@ -132,6 +133,7 @@ public class Enemy_two : Entity_enemy
         base.OnTriggerStay2D(collision);
         if (collision.gameObject.tag == "Bullet")
         {
+            NewScene.instance.deathEnemy = true;
             Destroy(collision.gameObject);
         }
     }

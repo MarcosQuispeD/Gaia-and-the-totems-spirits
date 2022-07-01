@@ -18,6 +18,8 @@ TagManager:
   - Music1
   - Confinder
   - Rock
+  - FxTemporaire
+  - BulletSpecial
   layers:
   - Default
   - TransparentFX

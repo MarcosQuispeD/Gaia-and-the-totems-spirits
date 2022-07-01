@@ -12,7 +12,7 @@ public class Tronq : MonoBehaviour
         {
             rigidbody.bodyType = RigidbodyType2D.Dynamic;
             rigidbody.constraints = ~RigidbodyConstraints2D.FreezePositionY;
-            rigidbody.gravityScale = 8;
+            rigidbody.gravityScale = 10;
         }
     }
 }

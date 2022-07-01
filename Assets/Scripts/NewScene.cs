@@ -9,6 +9,7 @@ public class NewScene : MonoBehaviour
     public int scene;
     public bool check;
     public GameObject BlockTree;
+    public bool deathEnemy;
 
     // Start is called before the first frame update
     void Start()
@@ -32,18 +33,25 @@ public class NewScene : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && check)
         {
-            check = false;
+            
             Debug.Log(collision.gameObject.GetComponentInParent<PlayerStats>().currentHealth);
-            PlayerPrefs.SetInt("Life", collision.gameObject.GetComponentInParent<PlayerStats>().currentHealth);
             if (scene == 0)
             {
-                ManagerScene.instance.DestroyObject();
+                if (deathEnemy)
+                {
+                    ManagerScene.instance.DestroyObject();
+                    SceneManager.LoadScene(scene);
+                }
             }
             else
             {
+                check = false;
+                PlayerPrefs.SetFloat("Ligth", collision.gameObject.GetComponentInParent<NewPlayerController>().pointLight2D.intensity);
+                PlayerPrefs.SetFloat("SideLigth", collision.gameObject.GetComponentInParent<NewPlayerController>().ligthBar.slider.value);
                 PlayerPrefs.SetInt("Life", collision.gameObject.GetComponentInParent<PlayerStats>().currentHealth);
+                SceneManager.LoadScene(scene);
             }
-            SceneManager.LoadScene(scene);
+          
         }
         else
         {

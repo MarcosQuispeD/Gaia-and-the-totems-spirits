@@ -9,6 +9,8 @@ public class ManagerScene : MonoBehaviour
     public static ManagerScene instance;
 
     protected float live;
+    protected float ligth;
+    protected float sideLigth;
     public bool isInnitGame;
     void Awake()
     {

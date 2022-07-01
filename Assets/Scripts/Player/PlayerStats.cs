@@ -13,10 +13,15 @@ public class PlayerStats : MonoBehaviour
     public AudioSource audioPlayerIt;
     void Start()
     {
+
+        //Mejorar
         if (ManagerScene.instance == null)
         {
             currentHealth = maxHealth;
             healthBar.SetMaxHealth(maxHealth);
+            gameObject.GetComponent<NewPlayerController>().timer = 0;
+            gameObject.GetComponent<NewPlayerController>().currentligth = gameObject.GetComponent<NewPlayerController>().maxligth;
+            gameObject.GetComponent<NewPlayerController>().ligthBar.SetMaxHealth(gameObject.GetComponent<NewPlayerController>().maxligth);
         }
         else
         {
@@ -24,12 +29,21 @@ public class PlayerStats : MonoBehaviour
             {
                 currentHealth = PlayerPrefs.GetInt("Life", 0);
                 healthBar.SetHealth(currentHealth);
+
+                gameObject.GetComponent<NewPlayerController>().currentligth = gameObject.GetComponent<NewPlayerController>().maxligth;
+                gameObject.GetComponent<NewPlayerController>().pointLight2D.intensity = PlayerPrefs.GetFloat("Ligth", 0);
+                gameObject.GetComponent<NewPlayerController>().ligthBar.slider.value = PlayerPrefs.GetFloat("SideLigth", 0);
+  
             }
             else
             {
                 currentHealth = maxHealth;
                 ManagerScene.instance.isInnitGame = false;
                 healthBar.SetMaxHealth(maxHealth);
+
+                gameObject.GetComponent<NewPlayerController>().timer =0;
+                gameObject.GetComponent<NewPlayerController>().currentligth = gameObject.GetComponent<NewPlayerController>().maxligth;
+                gameObject.GetComponent<NewPlayerController>().ligthBar.SetMaxHealth(gameObject.GetComponent<NewPlayerController>().maxligth);
             }
         }
       

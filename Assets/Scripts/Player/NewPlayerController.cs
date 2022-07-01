@@ -51,11 +51,13 @@ public class NewPlayerController : MonoBehaviour
 
     IEnumerator dashCoroutine;
 
+    public GameObject bulletSpecialPrefab;
     public GameObject bulletPrefab;
     public GameObject bulletFX;
     public Transform bulletOrigin;
     public Transform bulletFXOrigin;
     private float lastShoot;
+    float lastShootSpecial;
 
     public ParticleSystem dust;
 
@@ -100,8 +102,6 @@ public class NewPlayerController : MonoBehaviour
     private void Start()
     {
         normalGravity = rb.gravityScale;
-        currentligth = maxligth;
-        ligthBar.SetMaxHealth(maxligth);
     }
 
     private void Update()
@@ -150,6 +150,23 @@ public class NewPlayerController : MonoBehaviour
 
             //Para animaciones
             //Attack:
+
+            if (Input.GetKeyUp(KeyCode.Z) && ligthBar.slider.value >= 1f && Time.time > lastShootSpecial + 0.1f)
+            {
+
+                var gaia = Instantiate(bulletFX, bulletFXOrigin.position, bulletFXOrigin.rotation);
+
+                gaia.transform.SetParent(transform);
+
+
+                Instantiate(bulletSpecialPrefab, bulletOrigin.position, bulletOrigin.rotation);
+
+                ligthBar.slider.value -= 0.49f;
+                pointLight2D.intensity -= 0.15f;
+                lastShoot = Time.time;
+                ShootSound();
+            }
+
             if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastShoot + 0.1f)
             {
 
@@ -220,8 +237,6 @@ public class NewPlayerController : MonoBehaviour
             //Para animaciones
                         
         }
-
-
     }
 
     private void FixedUpdate()
@@ -240,7 +255,7 @@ public class NewPlayerController : MonoBehaviour
 
     public void LigthPlayer()
     {
-        if (pointLight2D.intensity != 0.7)
+        if (pointLight2D.intensity >= 0.7)
         {
             if (maxTimer >= timer)
             {
@@ -255,7 +270,7 @@ public class NewPlayerController : MonoBehaviour
                 else
                 {
                     ligthBar.slider.value -= 0.49f;
-                    pointLight2D.intensity -= 0.2f;
+                    pointLight2D.intensity -= 0.15f;
                 }
                 timer = 0;
             }
