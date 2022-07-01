@@ -13,8 +13,8 @@ public class Enemy_02_small : MonoBehaviour
 
     public void Movement(int bullet_number, bool flipped)
     {  
-        int _speedX = 10;
-        int _speedY = 10; 
+        int _speedX = 20;
+        int _speedY = 20; 
         //Para mover izquierda o derecha.
         if (flipped)
         {
@@ -42,4 +42,8 @@ public class Enemy_02_small : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        transform.Rotate(0, 0, 1000 * Time.deltaTime);
+    }
 }
