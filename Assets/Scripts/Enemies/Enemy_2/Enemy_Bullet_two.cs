@@ -38,11 +38,11 @@ public class Enemy_Bullet_two : MonoBehaviour
                 case 3:
                 case 4:
                     InstateParticle();
-                    speed = 9f;
+                    speed = 12f;
                     rb.velocity = new Vector2(0, transform.position.y > 0?(-transform.position.y * speed) : transform.position.y * speed);
                     break;
                 default:
-                    speed = 22f;
+                    speed = 20f;
                     player = GameObject.FindGameObjectsWithTag("Player")[0];
                     if (player!= null)
                     {
