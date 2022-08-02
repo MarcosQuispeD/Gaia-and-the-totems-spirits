@@ -76478,7 +76478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialegLines:
-  - Destruye el bloque para avanzar
+  - Usa la  Z para destruir los obstaculos.
   dialogPanel: {fileID: 485329457}
   dialogtext: {fileID: 485329456}
 --- !u!1 &973768279

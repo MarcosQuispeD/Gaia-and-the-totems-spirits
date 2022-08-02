@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyTiled : MonoBehaviour
 {
     public GameObject florLigth;
+    public GameObject text;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class DestroyTiled : MonoBehaviour
             {
                 florLigth.SetActive(true);
             }
+            Destroy(text);
             Destroy(gameObject);
         }
     }
