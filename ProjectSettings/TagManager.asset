@@ -60,3 +60,6 @@ TagManager:
   - name: Player
     uniqueID: 2201006735
     locked: 0
+  - name: Laser
+    uniqueID: 1734054783
+    locked: 0
