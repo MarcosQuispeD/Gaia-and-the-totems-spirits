@@ -38,23 +38,25 @@ public class Clock : MonoBehaviour
 
         ClockUpdate(_timeInSecondsToShow);
 
-        if(Input.GetKeyDown(KeyCode.I))
-        {
-            Continue();                
-        }
+        //Para test de funciones.
+        // if(Input.GetKeyDown(KeyCode.I))
+        // {
+        //     Continue();                
+        // }
 
         
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            Restart();
+        // if(Input.GetKeyDown(KeyCode.O))
+        // {
+        //     Restart();
     
-        }
+        // }
 
         
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            Pause();
-        }
+        // if(Input.GetKeyDown(KeyCode.P))
+        // {
+        //     Pause();
+        // }
+        //Para test de funciones.
     
     }
 
