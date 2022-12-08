@@ -56,11 +56,13 @@ public class PlayerStats : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            //Debug.Log(SceneManager.GetActiveScene().name);
             if (ManagerScene.instance != null)
             {
                 ManagerScene.instance.isInnitGame = true;
             }
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         
         
