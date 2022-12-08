@@ -7,107 +7,117 @@ using TMPro;
 
 public class Clock : MonoBehaviour
 {
-    public float initialTime;
-    
-    [Range(-10.0f,10.0f)]
-    public float scaleTime = 1;
+    public static Clock instance;
+    [SerializeField] private float initialTime;
 
-    private TextMeshProUGUI _myText;
-    private float _frameTimeWhitScaleTime = 0f;
-    private float _timeInSecondsToShow = 0f;
-    private float _pauseScaleTime;
-    private float _initialScaleTime;
-    
-    private bool _paused = false;    
+    [Range(-10.0f, 10.0f)]
+    [SerializeField] private float scaleTime = 1;
+    public TextMeshProUGUI myText;
+    private float frameTimeWhitScaleTime = 0f;
+    private float timeInSecondsToShow = 0f;
+    private float pauseScaleTime;
+    private float initialScaleTime;
+
+    private bool paused = false;
 
 
     void Start()
     {
-        _initialScaleTime = scaleTime;
-        _myText = GetComponent<TextMeshProUGUI>();
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
 
-        _timeInSecondsToShow = initialTime;
-        ClockUpdate(initialTime);               
-        
+
+        initialScaleTime = scaleTime;
+        myText = GetComponent<TextMeshProUGUI>();
+
+        timeInSecondsToShow = initialTime;
+        ClockUpdate(initialTime);
+
     }
 
     void Update()
     {
-        _frameTimeWhitScaleTime = Time.deltaTime * scaleTime;
-        _timeInSecondsToShow += _frameTimeWhitScaleTime;
+        frameTimeWhitScaleTime = Time.deltaTime * scaleTime;
+        timeInSecondsToShow += frameTimeWhitScaleTime;
 
-        ClockUpdate(_timeInSecondsToShow);
+        ClockUpdate(timeInSecondsToShow);
 
-        //Para test de funciones.
-        // if(Input.GetKeyDown(KeyCode.I))
+        // if (Input.GetKeyDown(KeyCode.I))
         // {
-        //     Continue();                
+        //     Continue();
         // }
 
-        
-        // if(Input.GetKeyDown(KeyCode.O))
+
+        // if (Input.GetKeyDown(KeyCode.O))
         // {
         //     Restart();
-    
+
         // }
 
-        
-        // if(Input.GetKeyDown(KeyCode.P))
+
+        // if (Input.GetKeyDown(KeyCode.P))
         // {
         //     Pause();
         // }
-        //Para test de funciones.
-    
+
     }
 
 
-    public void ClockUpdate(float _timeInSeconds)
+    public void ClockUpdate(float timeInSeconds)
     {
-        int _hours = 0;
-        int _minutes = 0;
-        int _seconds = 0;
-        string _clockText;
-        
-        if (_timeInSeconds < 0)
+        int hours = 0;
+        int minutes = 0;
+        int seconds = 0;
+        string clockText;
+
+        if (timeInSeconds < 0)
         {
-            _timeInSeconds = 0;
+            timeInSeconds = 0;
         }
 
-        _hours = (int)_timeInSeconds / 3600;
-        _minutes = (int)(_timeInSeconds - (_hours * 3600)) / 60;
-        _seconds = (int)_timeInSeconds % 60;
+        hours = (int)timeInSeconds / 3600;
+        minutes = (int)(timeInSeconds - (hours * 3600)) / 60;
+        seconds = (int)timeInSeconds % 60;
 
-        _clockText = _hours.ToString("00") + ":" + _minutes.ToString("00") + ":" + _seconds.ToString("00");
-        _myText.text = _clockText;   
+        clockText = hours.ToString("00") + ":" + minutes.ToString("00") + ":" + seconds.ToString("00");
+        myText.text = clockText;
 
     }
 
 
     public void Pause()
     {
-        if (!_paused)
+        if (!paused)
         {
-            _paused = true;
-            _pauseScaleTime = scaleTime;
+            paused = true;
+            pauseScaleTime = scaleTime;
             scaleTime = 0;
         }
     }
 
     public void Continue()
     {
-        if (_paused)
+        if (paused)
         {
-            _paused = false;
-            scaleTime = _pauseScaleTime;
+            paused = false;
+            scaleTime = pauseScaleTime;
         }
     }
 
     public void Restart()
     {
-        _paused = false;
-        scaleTime = _initialScaleTime;
-        _timeInSecondsToShow = initialTime;
-        ClockUpdate(_timeInSecondsToShow);
+        paused = false;
+        scaleTime = initialScaleTime;
+        timeInSecondsToShow = initialTime;
+        ClockUpdate(timeInSecondsToShow);
     }
 
 
