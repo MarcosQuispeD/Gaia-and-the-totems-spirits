@@ -11,6 +11,7 @@ public class PlayerStats : MonoBehaviour
     public SpriteRenderer _mySprite, _headSprite;
     public AudioClip[] audiosIt;
     public AudioSource audioPlayerIt;
+    public bool snakeActive = false;
     void Start()
     {
 
@@ -95,6 +96,19 @@ public class PlayerStats : MonoBehaviour
         if (collision.gameObject.tag == "Traps")
         {
             TakeDamage();
+        }
+
+        if (collision.gameObject.tag == "PoisonTraps")
+        {
+            if(snakeActive)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                TakeDamage();
+            }
+            
         }
 
     }

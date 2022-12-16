@@ -20,6 +20,7 @@ TagManager:
   - Rock
   - FxTemporaire
   - BulletSpecial
+  - PoisonTraps
   layers:
   - Default
   - TransparentFX

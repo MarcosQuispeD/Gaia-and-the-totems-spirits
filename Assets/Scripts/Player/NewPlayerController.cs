@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 public enum TypeTotems
 {
     eagle,
-    cheetah
+    cheetah,
+    snake
 }
 
 public class NewPlayerController : MonoBehaviour
@@ -235,7 +236,7 @@ public class NewPlayerController : MonoBehaviour
                 _myAnim.SetBool("Death", false);
             }
             //Para animaciones
-                        
+
         }
     }
 
@@ -346,7 +347,7 @@ public class NewPlayerController : MonoBehaviour
     private void ApplyMovement()
     {
         rb.velocity = new Vector2(movementInputDirection * movementSpeed, rb.velocity.y);
-        
+
     }
 
     private void Jump()
@@ -491,6 +492,9 @@ public class NewPlayerController : MonoBehaviour
                 break;
             case TypeTotems.cheetah:
                 itemDash = true;
+                break;
+            case TypeTotems.snake:
+            this.GetComponent<PlayerStats>().snakeActive = true;
                 break;
         }
         other.gameObject.GetComponent<SpriteRenderer>().enabled = false;

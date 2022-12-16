@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Platform section 2.unity
     guid: 15b939cd463e3ab4daa9e88b4b455dc5
   - enabled: 1
+    path: Assets/Scenes/Platform section 3.unity
+    guid: 967530b068194ac4aae7def30125fc4b
+  - enabled: 1
+    path: Assets/Scenes/Platform section 4.unity
+    guid: 1188876c883d46c4c99c8f159d447316
+  - enabled: 1
     path: Assets/Scenes/CombatPlatform.unity
     guid: ed32d7dbffae0ff43aad84bdcdde3e3b
   m_configObjects: {}

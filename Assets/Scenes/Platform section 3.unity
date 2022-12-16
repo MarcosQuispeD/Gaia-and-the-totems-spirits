@@ -93565,9 +93565,10 @@ GameObject:
   - component: {fileID: 456155903}
   - component: {fileID: 456155902}
   - component: {fileID: 456155904}
+  - component: {fileID: 456155905}
   m_Layer: 0
   m_Name: Totems_2
-  m_TagString: Untagged
+  m_TagString: Totem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93649,10 +93650,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3254127fae760e344b31dd6bb7838a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 0
-  dialegLines: []
-  dialogPanel: {fileID: 0}
-  dialogtext: {fileID: 0}
+  Type: 2
+  dialegLines:
+  - Conseguiste el totem de la serpiente, ahora seras inmune a las areas envenenadas
+  dialogPanel: {fileID: 485329457}
+  dialogtext: {fileID: 485329456}
+--- !u!61 &456155905
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456155901}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.07492709, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.2, y: 10.8}
+    newSize: {x: 19.2, y: 10.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.464051, y: 10.8}
+  m_EdgeRadius: 0
 --- !u!1001 &485329454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94213,7 +94241,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstaculo Serpiente (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5589456966306526086, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
+      propertyPath: m_TagString
+      value: PoisonTraps
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9110258638263282686, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
 --- !u!1 &824631093
 GameObject:
@@ -94362,6 +94395,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2586ab40cbaf1b40ac60bdf313eb653, type: 3}
+--- !u!1 &942149860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5589456966306526086, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
+  m_PrefabInstance: {fileID: 706147343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &942149861
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942149860}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.1290605, y: -18.264215}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.4237485, y: 21.091251}
+  m_EdgeRadius: 0
 --- !u!1 &943707716
 GameObject:
   m_ObjectHideFlags: 0
@@ -94433,7 +94497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4552256d195dfe144b96d1d2f07b9778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 3
+  scene: 5
   check: 0
   BlockTree: {fileID: 0}
   deathEnemy: 0
@@ -118644,6 +118708,10 @@ PrefabInstance:
       value: -1775162727
       objectReference: {fileID: 0}
     - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
+      propertyPath: itemDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297242916, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: ligthBar
       value: 
       objectReference: {fileID: 485329458}
@@ -119121,7 +119189,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstaculo Serpiente (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5589456966306526086, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
+      propertyPath: m_TagString
+      value: PoisonTraps
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9110258638263282686, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
 --- !u!1 &1545657051
 GameObject:
@@ -119539,6 +119612,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1756726445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5589456966306526086, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
+  m_PrefabInstance: {fileID: 1470704953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1756726446
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756726445}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2759384, y: -17.343893}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.451728, y: 16.797009}
+  m_EdgeRadius: 0
 --- !u!1001 &1776847127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120130,5 +120234,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstaculo Serpiente
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5589456966306526086, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
+      propertyPath: m_TagString
+      value: PoisonTraps
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110258638263282686, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9110258638263282686, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
+--- !u!1 &1520414067847284090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5589456966306526086, guid: a7e5888af4d8e684d8a75f6eaf475288, type: 3}
+  m_PrefabInstance: {fileID: 1520414067847284089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1520414067847284091
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520414067847284090}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.89371586, y: -11.674164}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.0325813, y: 24.348328}
+  m_EdgeRadius: 0
