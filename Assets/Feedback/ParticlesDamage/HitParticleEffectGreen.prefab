@@ -4876,12 +4876,12 @@ GameObject:
   - component: {fileID: 1731068698874369784}
   - component: {fileID: 1731068698874369791}
   m_Layer: 0
-  m_Name: HitParticleEffect
+  m_Name: HitParticleEffectGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1731068698874369790
 Transform:
   m_ObjectHideFlags: 0

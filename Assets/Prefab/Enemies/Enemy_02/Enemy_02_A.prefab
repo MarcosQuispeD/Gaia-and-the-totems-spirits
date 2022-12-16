@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 0
+  particulaPrefab: {fileID: 5118353585497645911, guid: cfa93857028726942819e49dffac5b2a, type: 3}
   enemy02Bullet: {fileID: 2051853908421503080, guid: c2415cfb06194074db3167fe003d82ac, type: 3}
 --- !u!50 &3609952717681227479
 Rigidbody2D:
@@ -157,9 +158,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 53b895cf846648042be8e6ea86d0f027, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 86391b1fe6d33464abd6c8e86a4e936c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0

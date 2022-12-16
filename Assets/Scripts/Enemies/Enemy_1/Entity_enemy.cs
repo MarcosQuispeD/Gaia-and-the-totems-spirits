@@ -9,15 +9,16 @@ public class Entity_enemy : MonoBehaviour
     public int _life;
     private AudioSource _myAudioSource;
     private SpriteRenderer _mySprite;
-    
-    
+    public GameObject particulaPrefab;
+
+
     // Start is called before the first frame update
     public virtual void Start()
     {
         //No lo agrego desde el proyecto, porque el prefab no me lo permite 
-       _player = GameObject.FindWithTag("Player");
-       _myAudioSource = GetComponent<AudioSource>();
-       _mySprite = GetComponent<SpriteRenderer>();
+        _player = GameObject.FindWithTag("Player");
+        _myAudioSource = GetComponent<AudioSource>();
+        _mySprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -25,38 +26,50 @@ public class Entity_enemy : MonoBehaviour
     {
         if (_life < 1)
         {
-        Destroy(gameObject);
+            Destroy(gameObject);
         }
 
     }
-    
+
     public void Damage(int power)
     {
         //Aca podemos restar vida, podemos llamar a una animacion y podemos lanzar una respuesta.
+        SpawParticles();
+        _myAudioSource = gameObject.GetComponentInChildren<AudioSource>();
+        _myAudioSource.Play();
+
         _life = _life - power;
         StartCoroutine(Feedback());
-  
+
     }
 
 
     public void Follow(GameObject player)
     {
         _mySprite.flipX = _player.transform.position.x < this.transform.position.x;
-        transform.position = Vector3.MoveTowards( transform.position, _player.transform.position, _speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, _speed * Time.deltaTime);
     }
 
     public void Spawn_childs(GameObject small_child)
-    { 
+    {
         //Cada vez que es atacado, suelta 2 enemigos.
-        Vector3 _position = new Vector3 (transform.position.x -1, transform.position.y -1, transform.position.z);
-        GameObject enemy_child = Instantiate(small_child, _position , transform.rotation );
-        _position = new Vector3 (transform.position.x +1, transform.position.y -1, transform.position.z);
-        enemy_child = Instantiate(small_child, _position , transform.rotation );
+        Vector3 _position = new Vector3(transform.position.x - 1, transform.position.y - 1, transform.position.z);
+        GameObject enemy_child = Instantiate(small_child, _position, transform.rotation);
+        _position = new Vector3(transform.position.x + 1, transform.position.y - 1, transform.position.z);
+        enemy_child = Instantiate(small_child, _position, transform.rotation);
+    }
+
+    public void SpawParticles()
+    {
+        if (particulaPrefab != null)
+        {
+            GameObject particula_instanciada = Instantiate(particulaPrefab, transform.position, transform.rotation);
+        }
     }
 
 
 
-    public virtual void OnCollisionEnter2D(Collision2D collision) 
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
@@ -66,7 +79,7 @@ public class Entity_enemy : MonoBehaviour
             }
             else
             {
-                _myAudioSource =gameObject.GetComponentInChildren<AudioSource>();
+                _myAudioSource = gameObject.GetComponentInChildren<AudioSource>();
                 _myAudioSource.Play();
             }
 
@@ -98,9 +111,9 @@ public class Entity_enemy : MonoBehaviour
     }
     public virtual void OnTriggerExit2D(Collider2D collision)
     {
-       
+
     }
-    
+
     public IEnumerator Feedback()
     {
         if (_mySprite == null)
@@ -122,6 +135,16 @@ public class Entity_enemy : MonoBehaviour
         _speed = _speed * -7;
         yield return new WaitForSeconds(0.5f);
         _speed = _speed / -7;
+
+    }
+
+
+    public IEnumerator Death()
+    {
+        _myAudioSource = gameObject.GetComponentInChildren<AudioSource>();
+        _myAudioSource.Play();
+        yield return new WaitForSeconds(1f);
+
 
     }
 
