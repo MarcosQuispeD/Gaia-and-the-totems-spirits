@@ -14664,6 +14664,7 @@ GameObject:
   - component: {fileID: 4252331739008623246}
   - component: {fileID: 4252331739008623240}
   - component: {fileID: 4252331739008623243}
+  - component: {fileID: 8532590793118201164}
   - component: {fileID: 4252331739008623242}
   m_Layer: 9
   m_Name: BossNew
@@ -14783,6 +14784,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.193587
+--- !u!58 &8532590793118201164
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252331739008623247}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.21031766, y: 0}
+  serializedVersion: 2
+  m_Radius: 6.096611
 --- !u!114 &4252331739008623242
 MonoBehaviour:
   m_ObjectHideFlags: 0
