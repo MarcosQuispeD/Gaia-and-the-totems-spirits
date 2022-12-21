@@ -94498,7 +94498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2092074305, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.160202
+      value: 16.19844
       objectReference: {fileID: 0}
     - target: {fileID: 2092074305, guid: b298f1a034fa8a84380565c709c00eb2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -112908,7 +112908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogPanel: {fileID: 1295873399}
   dialogtext: {fileID: 992347190}
-  message: 'Mover: Arriba, Derecha, Izquieda.'
+  message: 'Mover: Arriba, Derecha, Izquierda.'
 --- !u!1 &2112145511
 GameObject:
   m_ObjectHideFlags: 0

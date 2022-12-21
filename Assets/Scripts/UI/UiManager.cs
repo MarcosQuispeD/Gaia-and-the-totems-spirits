@@ -12,14 +12,21 @@ public class UiManager : MonoBehaviour
     {
         audioPlayer = this.GetComponent<AudioSource>();
     }
+    public void PlayIntro()
+    {
+        SceneManager.LoadScene("Intro");
+        
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
         
     }
+
     public void PlayCombat()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(9);
 
     }
     public void QuitGame()
