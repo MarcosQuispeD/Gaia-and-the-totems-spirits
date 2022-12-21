@@ -36,7 +36,24 @@ public class Music : MonoBehaviour
                     RepoMusic();
                     break;
                 case 2:
+                    RepoMusic();
+                    break;
                 case 3:
+                    BattleMusic();
+                    break;
+                case 4:
+                    RepoMusic();
+                    break;
+                case 5:
+                    RepoMusic();
+                    break;
+                case 6:
+                    BattleMusic();
+                    break;
+                case 7:
+                    BattleMusic();
+                    break;
+                case 8:
                     BattleMusic();
                     break;
             }
@@ -44,7 +61,7 @@ public class Music : MonoBehaviour
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
 
-        
+
     }
 
     public void BattleMusic()
