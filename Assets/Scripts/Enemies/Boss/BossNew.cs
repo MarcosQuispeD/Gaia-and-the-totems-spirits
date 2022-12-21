@@ -27,6 +27,11 @@ public class BossNew : MonoBehaviour
     [SerializeField] Transform innit;
     public GameObject init1;
     public GameObject init2;
+    public GameObject init3;
+    public GameObject init4;
+    public GameObject init5;
+    public GameObject init6;
+
 
     public GameObject spawnShoot;
 

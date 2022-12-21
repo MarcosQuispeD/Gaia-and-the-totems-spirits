@@ -9,6 +9,7 @@ public class BossNewAttack3 : IState
 
     float cronometro = 0;
     float tiempoFinal;
+    Vector2 target;
 
 
     public BossNewAttack3(FiniteStateMachine fsm, BossNew bossNew)
@@ -21,6 +22,7 @@ public class BossNewAttack3 : IState
     public void OnStart()
     {
         tiempoFinal = Random.Range(10f, 18f);
+        target = _bossNew.gaia.transform.position;
     }
 
     public void OnUpdate()
@@ -30,6 +32,7 @@ public class BossNewAttack3 : IState
 
     public void OnExit()
     {
+        _bossNew.mySprite.color = Color.white;
 
     }
 
@@ -43,16 +46,18 @@ public class BossNewAttack3 : IState
             cronometro = 0;
             _fsm.ChangeState(BossNewStates.Idle);
         }
-        _bossNew.transform.position = Vector2.MoveTowards(_bossNew.transform.position, _bossNew.gaia.transform.position, _bossNew.speed * Time.deltaTime);
+        _bossNew.transform.position = Vector2.MoveTowards(_bossNew.transform.position, target, _bossNew.speed * Time.deltaTime);
 
-        if (Vector2.Distance(_bossNew.transform.position,  _bossNew.gaia.transform.position) < _bossNew.distance)
+        if (Vector2.Distance(_bossNew.transform.position, target) < 5f)
         {
-            _bossNew.transform.position = Vector2.MoveTowards(_bossNew.transform.position, _bossNew.wayPoints[0].transform.position, _bossNew.speed * Time.deltaTime);
+            target = _bossNew.wayPoints[0].transform.position;
+            if (Vector2.Distance(_bossNew.transform.position, target) < 2f)
+            {
+                _fsm.ChangeState(BossNewStates.Idle);
+            }
 
         }
 
-
     }
-
 
 }
