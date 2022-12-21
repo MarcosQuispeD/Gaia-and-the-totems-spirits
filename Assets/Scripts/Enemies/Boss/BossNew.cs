@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public enum BossNewStates
@@ -33,6 +34,8 @@ public class BossNew : MonoBehaviour
     public GameObject init5;
     public GameObject init6;
 
+    public HealthBar healthBar;
+
 
     public GameObject spawnShoot;
 
@@ -60,6 +63,9 @@ public class BossNew : MonoBehaviour
     public int rayDamage = 5;
     private List<ParticleSystem> particles = new List<ParticleSystem>();
 
+    public AudioClip[] audiosPl;
+    public AudioSource audioPlayerPl;
+
     //Boss Ray//
     //public LineRenderer lineRenderer;
     //public Transform firePoint;
@@ -84,17 +90,6 @@ public class BossNew : MonoBehaviour
         _FSM.AddState(BossNewStates.Attack4, new BossNewAttack4(_FSM, this));
         _FSM.AddState(BossNewStates.Dead, new BossNewDead(_FSM, this));
         _FSM.ChangeState(BossNewStates.Idle);
-        if (level == 1)
-        {
-            bossCurrentLife = bossMaxLife;
-        }
-
-        if (level == 2)
-        {
-            bossCurrentLife = 50f;
-        }
-        
-
 
         FillLists();
         myAnimator = GetComponent<Animator>();
@@ -152,7 +147,20 @@ public class BossNew : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            bossCurrentLife -= 5;
+            bossCurrentLife -= 4f;
+            healthBar.SetHealth(bossCurrentLife);
+            if (bossCurrentLife < 55 && level == 1)
+            {
+                SceneManager.LoadScene("BossCombat2");
+            }
+
+            if (bossCurrentLife < 0 && level == 2)
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+
+
+
         }
     }
 

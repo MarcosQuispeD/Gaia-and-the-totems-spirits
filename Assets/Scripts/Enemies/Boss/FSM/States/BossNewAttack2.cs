@@ -20,7 +20,7 @@ public class BossNewAttack2 : IState
 
     public void OnStart()
     {
-        tiempoFinal = Random.Range(10f, 18f);
+        tiempoFinal = Random.Range(8f, 14f);
         _bossNew.init2.SetActive(true);
         _bossNew.nextPoint = 5;
 

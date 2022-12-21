@@ -2098,7 +2098,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: COMBATE
+  m_text: COMBAT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -3338,8 +3338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e667b39d8df8e47908a259e2965a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 0
-  check: 0
+  isInnitGame: 0
 --- !u!1 &1449533353
 GameObject:
   m_ObjectHideFlags: 0

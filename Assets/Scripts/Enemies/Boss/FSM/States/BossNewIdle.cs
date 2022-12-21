@@ -19,7 +19,6 @@ public class BossNewIdle : IState
     public void OnStart()
     {
         _bossNew._centre = _bossNew.transform.position;
-        _bossNew.bossCurrentLife = _bossNew.bossMaxLife;
         _bossNew.CurrentTimeChanger = _bossNew.stateChanger;
         _bossNew.init1.SetActive(false);
         _bossNew.init2.SetActive(false);
@@ -44,7 +43,7 @@ public class BossNewIdle : IState
         _bossNew.transform.position = _bossNew._centre + offset;
         _bossNew._angle += _bossNew.RotateSpeed * Time.deltaTime;
         cronometro += 1 * Time.deltaTime;
-        if (cronometro >= 4)
+        if (cronometro >= 3)
         {
             cronometro = 0;
 
