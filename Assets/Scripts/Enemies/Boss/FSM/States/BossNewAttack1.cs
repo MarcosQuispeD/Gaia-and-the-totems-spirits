@@ -21,6 +21,7 @@ public class BossNewAttack1 : IState
     public void OnStart()
     {
         tiempoFinal = Random.Range(10f, 18f);
+        _bossNew.init.SetActive(true);
     }
 
     public void OnUpdate()
@@ -36,6 +37,7 @@ public class BossNewAttack1 : IState
 
     public void Attack1Behaivor()
     {
+        
         cronometro += 1 * Time.deltaTime;
         if (cronometro >= tiempoFinal)
         {

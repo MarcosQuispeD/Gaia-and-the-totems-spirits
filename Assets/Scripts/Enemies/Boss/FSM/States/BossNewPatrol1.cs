@@ -20,7 +20,7 @@ public class BossNewPatrol1 : IState
     {
         tiempoFinal = Random.Range(10f, 18f);
         //Debug.Log(tiempoFinal);
-        
+
     }
 
     public void OnUpdate()
@@ -30,12 +30,14 @@ public class BossNewPatrol1 : IState
 
     public void OnExit()
     {
+        _bossNew.mySprite.color = Color.white;
 
     }
 
     public void Patrol1Behaivor()
     {
-        
+        _bossNew.mySprite.color = Color.red;
+
         cronometro += 1 * Time.deltaTime;
         if (cronometro >= tiempoFinal)
         {

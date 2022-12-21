@@ -21,6 +21,8 @@ public class BossNewIdle : IState
         _bossNew._centre = _bossNew.transform.position;
         _bossNew.bossCurrentLife = _bossNew.bossMaxLife;
         _bossNew.CurrentTimeChanger = _bossNew.stateChanger;
+        _bossNew.init.SetActive(false);
+
 
     }
 
@@ -44,7 +46,7 @@ public class BossNewIdle : IState
         if (cronometro >= 4)
         {
             cronometro = 0;
-            _fsm.ChangeState(BossNewStates.Attack1);
+            _fsm.ChangeState(BossNewStates.Patrol1);
         }
 
     }

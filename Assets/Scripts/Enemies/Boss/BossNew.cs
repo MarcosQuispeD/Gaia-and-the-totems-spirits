@@ -18,11 +18,16 @@ public enum BossNewStates
 public class BossNew : MonoBehaviour
 {
     public FiniteStateMachine _FSM;
+    public SpriteRenderer mySprite;
 
     public List<Transform> wayPoints = new List<Transform>();
     public int nextPoint = 1;
     public int speed;
     public float distance = 0.1f;
+    [SerializeField] Transform innit;
+    public GameObject init;
+
+    public GameObject spawnShoot;
 
     public Collider2D colliderAttack;
 
@@ -60,6 +65,7 @@ public class BossNew : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mySprite = GetComponent<SpriteRenderer>();
         _FSM = new FiniteStateMachine();
         var idle = new BossNewIdle(_FSM, this);
         _FSM.AddState(BossNewStates.Idle, idle);
@@ -121,6 +127,7 @@ public class BossNew : MonoBehaviour
         yield return new WaitForSeconds(3f);
         colliderAttack.enabled = true;
     }
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
