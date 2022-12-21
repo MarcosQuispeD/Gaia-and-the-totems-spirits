@@ -38,6 +38,10 @@ public class BossNewAttack4 : IState
     public void OnExit()
     {
         _bossNew.mySprite.color = Color.white;
+        _bossNew.init3.SetActive(false);
+        _bossNew.init4.SetActive(false);
+        _bossNew.init5.SetActive(false);
+        _bossNew.init6.SetActive(false);
     }
 
     public void Attack4Behaivor()

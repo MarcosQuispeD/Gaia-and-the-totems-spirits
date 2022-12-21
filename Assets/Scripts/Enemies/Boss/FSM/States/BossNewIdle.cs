@@ -47,7 +47,10 @@ public class BossNewIdle : IState
         if (cronometro >= 4)
         {
             cronometro = 0;
-            _fsm.ChangeState(BossNewStates.Attack4);
+
+            _fsm.ChangeState(BossNewStates.Patrol1);
+
+
         }
 
     }

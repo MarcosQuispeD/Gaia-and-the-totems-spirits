@@ -17,6 +17,7 @@ public enum BossNewStates
 
 public class BossNew : MonoBehaviour
 {
+    public int level;
     public FiniteStateMachine _FSM;
     public SpriteRenderer mySprite;
 
@@ -83,13 +84,24 @@ public class BossNew : MonoBehaviour
         _FSM.AddState(BossNewStates.Attack4, new BossNewAttack4(_FSM, this));
         _FSM.AddState(BossNewStates.Dead, new BossNewDead(_FSM, this));
         _FSM.ChangeState(BossNewStates.Idle);
+        if (level == 1)
+        {
+            bossCurrentLife = bossMaxLife;
+        }
+
+        if (level == 2)
+        {
+            bossCurrentLife = 50f;
+        }
+        
+
 
         FillLists();
         myAnimator = GetComponent<Animator>();
 
 
         // _centre = transform.position;
-        // bossCurrentLife = bossMaxLife;
+
         // CurrentTimeChanger = stateChanger;
 
     }

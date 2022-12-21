@@ -42,7 +42,15 @@ public class BossNewPatrol1 : IState
         if (cronometro >= tiempoFinal)
         {
             cronometro = 0;
-            _fsm.ChangeState(BossNewStates.Idle);
+            if (_bossNew.level == 1)
+            {
+                _fsm.ChangeState(BossNewStates.Attack1);
+            }
+            if (_bossNew.level == 2)
+            {
+                _fsm.ChangeState(BossNewStates.Attack3);
+            }
+
         }
         _bossNew.transform.position = Vector2.MoveTowards(_bossNew.transform.position, _bossNew.wayPoints[_bossNew.nextPoint].transform.position, _bossNew.speed * Time.deltaTime);
 

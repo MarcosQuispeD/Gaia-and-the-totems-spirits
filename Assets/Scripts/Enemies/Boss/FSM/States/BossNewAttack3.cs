@@ -44,7 +44,7 @@ public class BossNewAttack3 : IState
         if (cronometro >= tiempoFinal)
         {
             cronometro = 0;
-            _fsm.ChangeState(BossNewStates.Idle);
+            _fsm.ChangeState(BossNewStates.Attack4);
         }
         _bossNew.transform.position = Vector2.MoveTowards(_bossNew.transform.position, target, _bossNew.speed * Time.deltaTime);
 
@@ -53,7 +53,8 @@ public class BossNewAttack3 : IState
             target = _bossNew.wayPoints[0].transform.position;
             if (Vector2.Distance(_bossNew.transform.position, target) < 2f)
             {
-                _fsm.ChangeState(BossNewStates.Idle);
+                target = _bossNew.gaia.transform.position;
+
             }
 
         }
