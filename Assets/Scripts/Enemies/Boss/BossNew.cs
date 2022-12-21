@@ -25,7 +25,8 @@ public class BossNew : MonoBehaviour
     public int speed;
     public float distance = 0.1f;
     [SerializeField] Transform innit;
-    public GameObject init;
+    public GameObject init1;
+    public GameObject init2;
 
     public GameObject spawnShoot;
 

@@ -21,7 +21,7 @@ public class BossNewAttack1 : IState
     public void OnStart()
     {
         tiempoFinal = Random.Range(10f, 18f);
-        _bossNew.init.SetActive(true);
+        _bossNew.init1.SetActive(true);
     }
 
     public void OnUpdate()

@@ -29,6 +29,7 @@ public class InnitShoot : MonoBehaviour
             ExplosionBossNew bullet = GameObject.Instantiate(spawnShoot, this.transform.position, Quaternion.identity);
             bullet.SetSpeedX(speedX);
             bullet.SetSpeedY(speedY);
+            speedX = -speedX;
             cronometro = 0;
         }
 
