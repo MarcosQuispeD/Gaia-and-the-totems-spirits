@@ -156,7 +156,7 @@ public class BossNew : MonoBehaviour
 
             if (bossCurrentLife < 0 && level == 2)
             {
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("Outro");
             }
 
 
